@@ -37,9 +37,22 @@ const signInFailure = () => {
   $('#sign-in-message').text('ERROR: Please try again')
 }
 
+const changePasswordSuccess = () => {
+  $('#change-password-form').modal('hide')
+  $('#change-password-form').on('hidden.bs.modal', function () {
+    $(this).find('form').trigger('reset')
+  })
+}
+
+const changePasswordFailure = () => {
+  $('#change-password-message').text('ERROR: Please try again')
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
   signInSuccess,
-  signInFailure
+  signInFailure,
+  changePasswordSuccess,
+  changePasswordFailure
 }
