@@ -26,19 +26,19 @@ const onFileUpload = function (event) {
   const data = getFormFields(this)
   console.log(data)
   fileapi.fileUpload(data)
-    .then(fileui.fileCreateSuccess)
-    .catch(fileui.fileCreateFailure)
+    // .then(fileui.fileCreateSuccess)
+    // .catch(fileui.fileCreateFailure)
 }
 
 function urlImport (getImageurl) {
   document.querySelector('.modal-url').value = getImageurl
 }
-const addFileHandlers = () => {
+const addFileHandlers = function () {
   $('.file-picker-button').on('click', openPicker)
   $('#file-upload-form').on('submit', onFileUpload)
 }
 
-module.export = {
+module.exports = {
   onFileUpload,
   addFileHandlers
 }
