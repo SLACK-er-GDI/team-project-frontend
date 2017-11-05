@@ -28,10 +28,18 @@ const onChangePassword = function (event) {
     .catch(authui.changePasswordFailure)
 }
 
+const onSignOut = function (event) {
+  event.preventDefault()
+  authapi.signOut()
+    .then(authui.signOutSuccess)
+    .catch(authui.signOutFailure)
+}
+
 const addAuthHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
-  $('#change-password').on('submit', onChangePassword)  
+  $('#change-password').on('submit', onChangePassword)
+  $('#sign-out-link').on('click', onSignOut)
 }
 
 module.exports = {

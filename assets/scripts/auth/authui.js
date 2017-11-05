@@ -48,11 +48,28 @@ const changePasswordFailure = () => {
   $('#change-password-message').text('ERROR: Please try again')
 }
 
+const signOutSuccess = () => {
+  $('#sign-out').hide()
+  $('#change-password-link').hide()
+  $('#create-ads-link').hide()
+  $('#manage-ads-link').hide()
+  $('#exit-manage-ads-link').hide()
+  $('#sign-in-link').show()
+  $('#sign-up-nav').show()
+  store.user = null
+}
+
+const signOutFailure = () => {
+  $('#message').text('ERROR: We broke something....sorry')
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
   signInSuccess,
   signInFailure,
   changePasswordSuccess,
-  changePasswordFailure
+  changePasswordFailure,
+  signOutSuccess,
+  signOutFailure
 }
