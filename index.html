@@ -38,8 +38,44 @@
       </nav>
       </div>
 
-    
     <body class="container-fluid">
+
+      <!-- Sign up modal -->      
+        <div class="modal fade" id="sign-up-form" tabindex="-1" data-backdrop="static" data-keyboard="false" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="sign-up-message">Sign Up</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              </button>
+            </div>
+            <div class="modal-body">
+              <form id="sign-up">
+                <div class="form-group">
+                  <label for="sign-in-email" class="col-form-label">Email</label>
+                  <input type="email" name="credentials[email]" class="form-control" id="sign-in-email" placeholder="Email">
+                </div>
+                <div class="form-group">
+                  <label for="sign-in-password" class="col-form-label">Password</label>
+                  <input type="password" name="credentials[password]" class="form-control" id="sign-in-password" placeholder="Password">
+                </div>
+                <div class="form-group">
+                  <label for="sign-in-password" class="col-form-label">Confirm Password</label>
+                  <input type="password" name="credentials[password_confirmation]" class="form-control" id="sign-up-password-confirmation"
+                    placeholder="Confirm Password">
+                </div>
+            </div>
+            <div class="modal-footer">
+              <li class="footer-message"><a href="#sign-ui-form" id="sign-in-form-footer" data-toggle="modal" data-target="#sign-in-form">Already a member? Click here to sign in.</a></li>
+              <button type="button" class="btn btn-secondary modal-button" data-dismiss="modal">Close</button>
+              <button type="submit" name="submit" class="btn btn-primary modal-button">Sign Up</button>
+            </div>
+            </form>
+          </div>
+        </div>
+        </div>
+
       <!-- File upload modal -->
       <div class="modal fade" id="file-upload-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
