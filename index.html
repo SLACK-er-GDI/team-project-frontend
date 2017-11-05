@@ -11,15 +11,80 @@
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
-    <body class="container-fluid">
-      <h1>Example</h1>
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-      ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.</p>
+    <!-- Used to collect navbar links and collapse them into menu when screen size is below 756px -->
+    <nav class="navbar">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-links">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                      </button>
+            <a href="#" class="navbar-brand nav-links">Files</a>
+          </div>
+          <div class="collapse navbar-collapse" id="nav-links">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#" class="nav-links" id="sign-up-link" data-toggle="modal" data-target="#sign-up-form">Sign Up</a></li>
+              <li><a href="#" class="nav-links" id="sign-out-link">Sign Out</a></li>
+              <li><a href="#" class="nav-links" id="sign-in-link" data-toggle="modal" data-target="#sign-in-form">Sign In</a></li>
+              <li><a href="#" class="nav-links" id="change-password-link" data-toggle="modal" data-target="#change-password-form">Change Password</a></li>
+              <li><a href="#" class="nav-links" id="file-upload-link" data-toggle="modal" data-target="#file-upload-modal">File Upload</a></li>                         
+              <li data-user="no-user"><a href="#login-modal" data-toggle="modal"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+              
+            </ul>
+          </div>
+        </div>
+      </nav>
+      </div>
+
+    
+    <body class="container-fluid">
+      <!-- File upload modal -->
+      <div class="modal fade" id="file-upload-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Upload a File</h5>
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form id="file-upload-form">
+                <div class="form-group">
+                  <label class="col-form-label">Title</label>
+                  <input type="text" name="title[new]" class="form-control" id="file-upload-title" placeholder="Title">
+                </div>
+                <div class="form-group">
+                  <label nclass="col-2 col-form-label">Upload Image</label>
+                  <div class="col-10">
+              <button type="button" class="btn btn-primary modal-button file-picker-button" >upload</button>
+              
+                      <!-- <input class="test" type="button" value="Upload" /> -->
+                      <!-- add hidden to this form control 'sr-only' maybe add readonly for security?-->
+                    <input class="modal-url form-control"  type="url" name="file[link]">
+                  </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary modal-button" data-dismiss="modal">Close</button>
+              <button type="submit" name="submit" class="btn btn-primary modal-button">Save</button>
+            </div>
+            </form>
+          </div>
+        </div>
+        </div>
+
+  
+        <form>
+          First name:<br>
+          <input type="text" name="firstname"><br>
+          Last name:<br>
+          <input class="file-picker-button" type="button" value="Upload" />
+        </form>
+        <!-- web search and url work outside of form field -->
+        
+        
+      
     </body>
 </html>

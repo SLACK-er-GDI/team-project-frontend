@@ -1,2 +1,87 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+$background-tint: #1734C1;
+$background-color: rgba(0, 0, 0, .7);
+$border-color-input: rgba(255, 255, 255, 0.42);
+$font-family: verdana;
+
+body {
+  background: url('https://images.pexels.com/photos/37403/bora-bora-french-polynesia-sunset-ocean.jpg?w=1260&h=750&auto=compress&cs=tinysrgb') no-repeat center center fixed;
+  background-size: cover;
+  &:after {
+    content: '';
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: $background-tint;
+    opacity: .3;
+    z-index: -1;
+  }
+}
+
+
+.modal-content {
+  background-color: $background-color;
+  padding: 15px;
+  margin: 45px auto;
+  label, input, .icon {
+    color: #29b6f6!important;
+  }
+  .input-group__details {
+    &:before {
+      background-color: $border-color-input !important;
+    }
+  }
+}
+
+.navbar {
+  background-color: rgba(0,0,0,0.0);
+}
+
+.nav-links {
+  color: white;
+  font-family: $font-family
+}
+
+.icon-bar {
+  background-color: white
+}
+
+// .modal-content {
+//   background-color: transparent
+// }
+
+.modal-title {
+  color: #29b6f6;
+  font-family: $font-family;
+  font-size: 20px;
+  text-align: center
+}
+
+.form-control {
+  background-color: transparent;
+  border-radius: 0;
+  border-top: none;
+  border-right: none;
+  border-left: none; 
+}
+
+label {
+  color: white;
+  font-family: $font-family;
+}
+
+.btn-primary {
+  background-color: transparent;
+  font-family: $font-family;
+  border-color: 1px solid #2e6da4;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  font-family: $font-family;
+  border-color: 1px solid #2e6da4;
+}

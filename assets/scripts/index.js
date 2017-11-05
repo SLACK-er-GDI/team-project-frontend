@@ -2,6 +2,11 @@
 
 const setAPIOrigin = require('../../lib/set-api-origin')
 const config = require('./config')
+const fileevents = require('./files/fileevents')
+
+$(() => {
+  fileevents.addFileHandlers()
+})
 
 $(() => {
   setAPIOrigin(location, config)
