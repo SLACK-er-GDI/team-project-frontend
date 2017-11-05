@@ -6,6 +6,7 @@ const signUpSuccess = (data) => {
   console.log('success')
   $('#sign-up-form').modal('hide')
   $('#sign-in-form').modal('show')
+  // Used to clear out login data
   $('#sign-up-form').on('hidden.bs.modal', function () {
     $(this).find('form').trigger('reset')
   })
@@ -39,6 +40,7 @@ const signInFailure = () => {
 
 const changePasswordSuccess = () => {
   $('#change-password-form').modal('hide')
+  // Used to clear out login data
   $('#change-password-form').on('hidden.bs.modal', function () {
     $(this).find('form').trigger('reset')
   })
@@ -51,16 +53,12 @@ const changePasswordFailure = () => {
 const signOutSuccess = () => {
   $('#sign-out').hide()
   $('#change-password-link').hide()
-  $('#create-ads-link').hide()
-  $('#manage-ads-link').hide()
-  $('#exit-manage-ads-link').hide()
   $('#sign-in-link').show()
   $('#sign-up-nav').show()
   store.user = null
 }
 
 const signOutFailure = () => {
-  $('#message').text('ERROR: We broke something....sorry')
 }
 
 module.exports = {
