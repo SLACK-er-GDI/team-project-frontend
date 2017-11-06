@@ -4,9 +4,10 @@ const getFormFields = require(`../../../lib/get-form-fields`)
 const fileapi = require('./fileapi')
 const fileui = require('./fileui')
 const store = require('../store')
+const key = require('./env')
 
 // Function for lauching Filestack uploader
-const fsClient = filestack.init('Ar0N2R53YQky6sT5yTl3Kz')
+const fsClient = filestack.init(key.fileKey)
 function openPicker () {
   fsClient.pick({
     // Controls where users can select files from
@@ -31,8 +32,8 @@ const onFileUpload = function (event) {
   console.log(data)
   fileapi.fileUpload(data)
   // Code below is commented out until backend functionality is complete
-    // .then(fileui.fileCreateSuccess)
-    // .catch(fileui.fileCreateFailure)
+    .then(fileui.fileCreateSuccess)
+    .catch(fileui.fileCreateFailure)
 }
 
 // This sets the form value for pared URL received from Filestack
