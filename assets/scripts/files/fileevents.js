@@ -39,7 +39,19 @@ const onGetUploads = function () {
   fileapi.getUploads()
   // Code below is commented out until backend functionality is complete
     .then(fileui.getUploadsSuccess)
+    .then(onDeleteUpload)
     .catch(fileui.getUploadsFailure)
+}
+
+const onDeleteUpload = () => {
+  $('.remove').on('click', function (event) {
+    const index = $(event.target).attr('data-id')
+    console.log('index is', index)
+    fileapi.deleteUpload(index)
+    // Code below is commented out until backend functionality is complete
+      .then(fileui.deleteUploadSuccess)
+      .catch(fileui.deleteUploadFailure)
+  })
 }
 
 // This sets the form value for pared URL received from Filestack
@@ -58,5 +70,6 @@ const addFileHandlers = function () {
 module.exports = {
   onFileUpload,
   addFileHandlers,
-  onGetUploads
+  onGetUploads,
+  onDeleteUpload
 }
