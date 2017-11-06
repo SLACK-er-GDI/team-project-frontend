@@ -35,11 +35,12 @@ const onSignOut = function (event) {
     .catch(authui.signOutFailure)
 }
 
-const addAuthHandlers = () => {
+const addAuthHandlers = function () {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
   $('#change-password').on('submit', onChangePassword)
   $('#sign-out-link').on('click', onSignOut)
+  authui.initializeForm()
 }
 
 module.exports = {
