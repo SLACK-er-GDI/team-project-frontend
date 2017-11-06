@@ -18,7 +18,7 @@ function openPicker() {
     // Response is the object that Filestack returns aftre upload is complete
   }).then(function(response) {
     // getImageurl parses out the URL received from Filestack and stores it in variable
-     getImageurl = response.filesUploaded[0].url
+     let getImageurl = response.filesUploaded[0].url
     //const Call function to place the Filestack URL in the form field
     urlImport(getImageurl)
     // handleFilestack(response)

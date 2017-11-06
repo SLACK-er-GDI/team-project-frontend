@@ -13,7 +13,7 @@ const fileCreateFailure = () => {
 
 const getUploadsSuccess = (data) => {
   const showUploadsHtml = showUploadsTemplate({ uploads: data.upload })
-  $('#uploads-thumbnails').append(showUploadsHtml)
+  $('#uploads-thumbnails').html(showUploadsHtml)
 
   console.log('got uploads successfully')
   console.log('get uploads data is ', data)
