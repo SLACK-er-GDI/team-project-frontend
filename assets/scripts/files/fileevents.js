@@ -3,6 +3,7 @@ import filestack from 'filestack-js'
 const getFormFields = require(`../../../lib/get-form-fields`)
 const fileapi = require('./fileapi')
 const fileui = require('./fileui')
+const store = require('../store')
 
 // Function for lauching Filestack uploader
 const fsClient = filestack.init('Ar0N2R53YQky6sT5yTl3Kz')
@@ -44,7 +45,7 @@ const onFileUpload = function (event) {
     .catch(fileui.fileCreateFailure)
 }
 
-const onGetUploads = function () {
+const onGetUploads = function (event) {
   event.preventDefault()
   fileapi.getUploads()
     // Code below is commented out until backend functionality is complete
@@ -55,7 +56,6 @@ const onGetUploads = function () {
 
 const onDeleteUpload = () => {
   $('.remove').on('click', function (event) {
-    event.preventDefault()
     const index = $(event.target).attr('data-id')
     console.log('index is', index)
     fileapi.deleteUpload(index)
@@ -64,6 +64,28 @@ const onDeleteUpload = () => {
       .then(getUploadsRefresh)
       .catch(fileui.deleteUploadFailure)
   })
+}
+
+const filterUserUploads = function (array) {
+  const userArray = []
+  for (let i = 0; i < array.length; i++) {
+    if (array[i]._owner === store.user.id) {
+      userArray.push(array[i])
+    } else {
+    }
+  }
+  console.log(userArray)
+  return userArray
+}
+
+const onGetUserUploads = function (event) {
+  event.preventDefault()
+  fileapi.getUploads()
+    // Code below is commented out until backend functionality is complete
+    .then(filterUserUploads)
+    .then(fileui.getUserUploadsSuccess)
+    .then(onDeleteUpload)
+    .catch(fileui.getUserUploadsFailure)
 }
 
 // This sets the form value for pared URL received from Filestack
@@ -77,6 +99,7 @@ const addFileHandlers = function () {
   // When user saves form, the function that stores the form info is called
   $('#file-upload-form').on('submit', onFileUpload)
   $('#get-uploads-link').on('click', onGetUploads)
+  $('#get-user-uploads-link').on('click', onGetUserUploads)
 }
 
 module.exports = {
