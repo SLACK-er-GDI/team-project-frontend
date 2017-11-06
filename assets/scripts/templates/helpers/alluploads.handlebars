@@ -1,0 +1,11 @@
+{{#each uploads as |upload|}}
+<!-- go through uploads array and do something on each one -->
+        <div class="col-sm-6 col-md-3">
+           <div class="thumbnail">
+               <h4>Header Text</h4>
+               <img src="{{upload.url}}" alt="...">
+               <a href="" class="btn btn-primary col-xs-12" data-id="{{upload.id}}" role="button">View More</a>
+               <div class="clearfix"></div>
+           </div>
+         </div>
+{{/each}}

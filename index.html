@@ -27,6 +27,9 @@
     <div class="collapse navbar-collapse" id="nav-links">
       <ul class="nav navbar-nav navbar-right">
         <li>
+          <a href="#" class="nav-links" id="get-uploads-link" data-target="#sign-up-form">Get Files</a>
+        </li>
+        <li>
           <a href="#" class="nav-links" id="sign-up-link" data-toggle="modal" data-target="#sign-up-form">Sign Up</a>
         </li>
         <li>
@@ -187,9 +190,9 @@
                  <div class="button-group">
                     <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown"></span> <span class="caret"></span>Add Tags</button>
                       <ul class="dropdown-menu">
-                        <li><a href="#" class="small" data-value="option1" tabIndex="-1"><input type="checkbox" name="upload[tags]"/>&nbsp;Animal</a></li>
-                        <li><a href="#" class="small" data-value="option2" tabIndex="-1"><input type="checkbox" name="upload[tags]"/>&nbsp;Landscape</a></li>
-                        <li><a href="#" class="small" data-value="option3" tabIndex="-1"><input type="checkbox" name="upload[tags]"/>&nbsp;Person</a></li>
+                        <li><a href="#" class="small" data-value="Animal" tabIndex="-1"><input type="checkbox" name="upload[tags]"/>&nbsp;Animal</a></li>
+                        <li><a href="#" class="small" data-value="Landscape" tabIndex="-1"><input type="checkbox" name="upload[tags]"/>&nbsp;Landscape</a></li>
+                        <li><a href="#" class="small" data-value="Person" tabIndex="-1"><input type="checkbox" name="upload[tags]"/>&nbsp;Person</a></li>
                       </ul>
               </div>
               </div>
@@ -215,6 +218,12 @@
   </form>
   <!-- web search and url work outside of form field -->
 
+
+  <div class="container">
+      <div class="row" id="uploads-thumbnails">
+         <!-- handlebars code append here -->
+  	  </div>
+  </div>
 
 
 </body>
