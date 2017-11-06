@@ -22,16 +22,20 @@ const signInSuccess = (response) => {
   $('#sign-in-password').val('')
   $('#sign-in-form').modal('hide')
   $('#sign-in-link').hide()
-  $('#sign-out-link').show()
   $('#sign-up-link').hide()
+  $('#sign-out-link').show()
   $('#change-password-link').show()
   $('#create-ads-link').show()
   $('#manage-ads-link').show()
+  $('#file-upload-link').show()
+  $('#upload-thumbnails').show()
+  $('#get-uploads-link').show()
   // Used to clear out login data
   $('#sign-in-form').on('hidden.bs.modal', function () {
     $(this).find('form').trigger('reset')
   })
   store.user = response.user
+  $('#get-uploads-link').trigger('click')
 }
 
 const signInFailure = () => {
@@ -57,9 +61,11 @@ const initializeForm = () => {
   $('#file-upload-link').hide()
   $('#files-link').hide()
   $('#file-picker-form').hide()
+  $('#get-uploads-link').hide()
   $('#sign-in-link').show()
   $('#sign-up-link').show()
   $('#sign-in-form').modal('show')
+  $('#upload-thumbnails').hide()
   store.user = null
 }
 
