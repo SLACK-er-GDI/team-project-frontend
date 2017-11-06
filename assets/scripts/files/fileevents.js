@@ -6,8 +6,9 @@ const fileui = require('./fileui')
 // const store = require('../store')
 const key = require('./env')
 
+
 // Function for lauching Filestack uploader
-const fsClient = filestack.init(key.fileKey)
+const fsClient = filestack.init('Ar0N2R53YQky6sT5yTl3Kz')
 function openPicker () {
   fsClient.pick({
     // Controls where users can select files from
