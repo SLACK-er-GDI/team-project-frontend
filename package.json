@@ -7,6 +7,7 @@
     "content": "CC­BY­NC­SA 4.0"
   },
   "dependencies": {
+    "filestack-js": "^0.9.11",
     "jquery": "^3.2.1"
   },
   "devDependencies": {
