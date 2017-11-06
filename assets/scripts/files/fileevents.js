@@ -3,7 +3,7 @@ import filestack from 'filestack-js'
 const getFormFields = require(`../../../lib/get-form-fields`)
 const fileapi = require('./fileapi')
 const fileui = require('./fileui')
-const store = require('../store')
+// const store = require('../store')
 const key = require('./env')
 
 // Function for lauching Filestack uploader
@@ -36,6 +36,14 @@ const onFileUpload = function (event) {
     .catch(fileui.fileCreateFailure)
 }
 
+const onGetUploads = function () {
+  event.preventDefault()
+  fileapi.getUploads()
+  // Code below is commented out until backend functionality is complete
+    .then(fileui.getUploadsSuccess)
+    .catch(fileui.getUploadsFailure)
+}
+
 // This sets the form value for pared URL received from Filestack
 function urlImport (getImageurl) {
   document.querySelector('.modal-url').value = getImageurl
@@ -46,9 +54,11 @@ const addFileHandlers = function () {
   $('.file-picker-button').on('click', openPicker)
   // When user saves form, the function that stores the form info is called
   $('#file-upload-form').on('submit', onFileUpload)
+  $('#get-uploads-link').on('click', onGetUploads)
 }
 
 module.exports = {
   onFileUpload,
-  addFileHandlers
+  addFileHandlers,
+  onGetUploads
 }
