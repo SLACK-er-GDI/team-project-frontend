@@ -68,10 +68,11 @@ const onDeleteUpload = () => {
 
 const filterUserUploads = function (array) {
   const userArray = []
-  for (let i = 0; i < array.length; i++) {
-    if (array[i]._owner === store.user.id) {
-      userArray.push(array[i])
+  for (let i = 0; i < array.upload.length; i++) {
+    if (array.upload[i]._owner === store.user.id) {
+      userArray.push(array.upload[i])
     } else {
+      console.log('This one does not match', array.upload[i])
     }
   }
   console.log(userArray)
