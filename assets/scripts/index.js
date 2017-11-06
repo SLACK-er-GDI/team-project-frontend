@@ -5,6 +5,7 @@ const config = require('./config')
 const fileevents = require('./files/fileevents')
 const authevents = require('./auth/authevents')
 
+// invokes click handlers for authentication and file actions
 $(() => {
   fileevents.addFileHandlers()
   authevents.addAuthHandlers()
