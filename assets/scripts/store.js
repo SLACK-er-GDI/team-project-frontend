@@ -3,4 +3,10 @@
 const store = {
 }
 
-module.exports = store
+const onSignUpSignIn = {
+}
+
+module.exports = {
+  store,
+  onSignUpSignIn
+}
