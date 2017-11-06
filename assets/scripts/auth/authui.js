@@ -28,7 +28,7 @@ const signInSuccess = (response) => {
   $('#create-ads-link').show()
   $('#manage-ads-link').show()
   $('#file-upload-link').show()
-  $('#upload-thumbnails').show()
+  $('#uploads-thumbnails').show()
   $('#get-uploads-link').show()
   // Used to clear out login data
   $('#sign-in-form').on('hidden.bs.modal', function () {
@@ -64,8 +64,9 @@ const initializeForm = () => {
   $('#get-uploads-link').hide()
   $('#sign-in-link').show()
   $('#sign-up-link').show()
+  $('#sign-in-message').text('Please Sign In to Upload files.')
   $('#sign-in-form').modal('show')
-  $('#upload-thumbnails').hide()
+  $('#uploads-thumbnails').hide()
   store.user = null
 }
 
@@ -74,6 +75,7 @@ const signOutSuccess = () => {
 }
 
 const signOutFailure = () => {
+
 }
 
 module.exports = {
