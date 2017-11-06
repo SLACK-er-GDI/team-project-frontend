@@ -3,9 +3,6 @@ import filestack from 'filestack-js'
 const getFormFields = require(`../../../lib/get-form-fields`)
 const fileapi = require('./fileapi')
 const fileui = require('./fileui')
-// const store = require('../store')
-const key = require('./env')
-
 
 // Function for lauching Filestack uploader
 const fsClient = filestack.init('Ar0N2R53YQky6sT5yTl3Kz')
