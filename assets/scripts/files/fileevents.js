@@ -4,7 +4,7 @@ const getFormFields = require(`../../../lib/get-form-fields`)
 const fileapi = require('./fileapi')
 const fileui = require('./fileui')
 // const store = require('../store')
-const key = require('./env')
+// const key = require('./env')
 
 // Function for lauching Filestack uploader
 const fsClient = filestack.init(key.fileKey)
