@@ -18,11 +18,17 @@ function openPicker() {
     // Response is the object that Filestack returns aftre upload is complete
   }).then(function(response) {
     // getImageurl parses out the URL received from Filestack and stores it in variable
-     getImageurl = response.filesUploaded[0].url
+     let getImageurl = response.filesUploaded[0].url
     //const Call function to place the Filestack URL in the form field
     urlImport(getImageurl)
     // handleFilestack(response)
   })
+}
+
+const getUploadsRefresh = function (event) {
+  fileapi.getUploads()
+    .then(fileui.getUploadsSuccess)
+    .catch(fileui.getUploadsFailure)
 }
 
 const onFileUpload = function (event) {
@@ -43,7 +49,21 @@ const onGetUploads = function () {
   fileapi.getUploads()
     // Code below is commented out until backend functionality is complete
     .then(fileui.getUploadsSuccess)
+    .then(onDeleteUpload)
     .catch(fileui.getUploadsFailure)
+}
+
+const onDeleteUpload = () => {
+  $('.remove').on('click', function (event) {
+    event.preventDefault()
+    const index = $(event.target).attr('data-id')
+    console.log('index is', index)
+    fileapi.deleteUpload(index)
+    // Code below is commented out until backend functionality is complete
+      .then(fileui.deleteUploadSuccess)
+      .then(getUploadsRefresh)
+      .catch(fileui.deleteUploadFailure)
+  })
 }
 
 // This sets the form value for pared URL received from Filestack
@@ -62,5 +82,6 @@ const addFileHandlers = function () {
 module.exports = {
   onFileUpload,
   addFileHandlers,
-  onGetUploads
+  onGetUploads,
+  onDeleteUpload
 }
