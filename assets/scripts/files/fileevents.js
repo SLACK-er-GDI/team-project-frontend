@@ -24,6 +24,12 @@ function openPicker () {
   })
 }
 
+const getUploadsRefresh = function (event) {
+  fileapi.getUploads()
+    .then(fileui.getUploadsSuccess)
+    .catch(fileui.getUploadsFailure)
+}
+
 const onFileUpload = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
@@ -45,11 +51,13 @@ const onGetUploads = function () {
 
 const onDeleteUpload = () => {
   $('.remove').on('click', function (event) {
+    event.preventDefault()
     const index = $(event.target).attr('data-id')
     console.log('index is', index)
     fileapi.deleteUpload(index)
     // Code below is commented out until backend functionality is complete
       .then(fileui.deleteUploadSuccess)
+      .then(getUploadsRefresh)
       .catch(fileui.deleteUploadFailure)
   })
 }
