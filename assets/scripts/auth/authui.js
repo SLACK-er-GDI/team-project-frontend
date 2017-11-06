@@ -30,6 +30,7 @@ const signInSuccess = (response) => {
   $('#file-upload-link').show()
   $('#uploads-thumbnails').show()
   $('#get-uploads-link').show()
+  $('#get-user-uploads-link').show()
   // Used to clear out login data
   $('#sign-in-form').on('hidden.bs.modal', function () {
     $(this).find('form').trigger('reset')
@@ -62,6 +63,7 @@ const initializeForm = () => {
   $('#files-link').hide()
   $('#file-picker-form').hide()
   $('#get-uploads-link').hide()
+  $('#get-user-uploads-link').hide()
   $('#sign-in-link').show()
   $('#sign-up-link').show()
   $('#sign-in-message').text('Please Sign In to Upload files.')

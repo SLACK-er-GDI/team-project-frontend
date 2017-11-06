@@ -32,11 +32,23 @@ const deleteUploadFailure = () => {
   console.log('delete upload failed...... shit')
 }
 
+const getUserUploadsSuccess = (data) => {
+  const showUploadsHtml = showUploadsTemplate({ uploads: data.upload })
+  $('#uploads-thumbnails').html(showUploadsHtml)
+  console.log('get User Uploads successfully')
+}
+
+const getUserUploadsFailure = () => {
+  console.log('get User Uploads failed...... shit')
+}
+
 module.exports = {
   fileCreateSuccess,
   fileCreateFailure,
   getUploadsSuccess,
   getUploadsFailure,
   deleteUploadFailure,
-  deleteUploadSuccess
+  deleteUploadSuccess,
+  getUserUploadsFailure,
+  getUserUploadsSuccess
 }
