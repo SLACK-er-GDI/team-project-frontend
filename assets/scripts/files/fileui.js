@@ -33,7 +33,8 @@ const deleteUploadFailure = () => {
 }
 
 const getUserUploadsSuccess = (data) => {
-  const showUploadsHtml = showUploadsTemplate({ uploads: data.upload })
+  console.log(data)
+  const showUploadsHtml = showUploadsTemplate({ uploads: data })
   $('#uploads-thumbnails').html(showUploadsHtml)
   console.log('get User Uploads successfully')
 }
