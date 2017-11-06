@@ -17,6 +17,17 @@ const fileUpload = function (data) {
   })
 }
 
+const getUploads = function () {
+  return $.ajax({
+    url: config.apiOrigin + '/uploads',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
-  fileUpload
+  fileUpload,
+  getUploads
 }

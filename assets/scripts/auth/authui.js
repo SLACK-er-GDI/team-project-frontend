@@ -17,13 +17,13 @@ const signUpFailure = () => {
 }
 
 const signInSuccess = (response) => {
-  $('#sign-in-message').text('Sign In to Post Ads')
+  $('#sign-in-message').text('Sign In to Load Files')
   $('#sign-in-email').removeData()
   $('#sign-in-password').val('')
   $('#sign-in-form').modal('hide')
   $('#sign-in-link').hide()
-  $('#sign-out').show()
-  $('#sign-up-nav').hide()
+  $('#sign-out-link').show()
+  $('#sign-up-link').hide()
   $('#change-password-link').show()
   $('#create-ads-link').show()
   $('#manage-ads-link').show()
@@ -50,18 +50,28 @@ const changePasswordFailure = () => {
   $('#change-password-message').text('ERROR: Please try again')
 }
 
-const signOutSuccess = () => {
+const initializeForm = () => {
   $('#sign-out').hide()
+  $('#sign-out-link').hide()
   $('#change-password-link').hide()
+  $('#file-upload-link').hide()
+  $('#files-link').hide()
+  $('#file-picker-form').hide()
   $('#sign-in-link').show()
-  $('#sign-up-nav').show()
+  $('#sign-up-link').show()
+  $('#sign-in-form').modal('show')
   store.user = null
+}
+
+const signOutSuccess = () => {
+  initializeForm()
 }
 
 const signOutFailure = () => {
 }
 
 module.exports = {
+  initializeForm,
   signUpSuccess,
   signUpFailure,
   signInSuccess,
