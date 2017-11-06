@@ -3,9 +3,11 @@
 const setAPIOrigin = require('../../lib/set-api-origin')
 const config = require('./config')
 const fileevents = require('./files/fileevents')
+const authevents = require('./auth/authevents')
 
 $(() => {
   fileevents.addFileHandlers()
+  authevents.addAuthHandlers()
 })
 
 $(() => {
