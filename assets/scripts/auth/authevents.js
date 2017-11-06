@@ -9,6 +9,8 @@ const onSignUp = function (event) {
   const data = getFormFields(this)
   authapi.signUp(data)
     .then(authui.signUpSuccess)
+    .then(authapi.signUpSignIn)
+    .then(authui.signInSuccess)
     .catch(authui.signUpFailure)
 }
 
