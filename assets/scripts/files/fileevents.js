@@ -37,7 +37,7 @@ const getUploadsRefresh = function (event) {
 const onFileUpload = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  if (data.tags !== null) {
+  if (!jQuery.isEmptyObject(data.tags)) {
     data.upload['tags'] = Object.keys(data.tags)
   }
   console.log(data)
