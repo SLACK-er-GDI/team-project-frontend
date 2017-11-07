@@ -69,6 +69,7 @@ const initializeForm = () => {
   $('#sign-in-message').text('Please Sign In to Upload files.')
   $('#sign-in-form').modal('show')
   $('#uploads-thumbnails').hide()
+  $('#no-uploads-message').hide()
   store.user = null
 }
 

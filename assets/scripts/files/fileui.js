@@ -38,9 +38,19 @@ const deleteUploadFailure = () => {
 }
 
 const getUserUploadsSuccess = (data) => {
-  console.log('this is the data you want', data)
-  const showUploadsHtml = showUploadsTemplate({ uploads: data })
-  $('#uploads-thumbnails').html(showUploadsHtml)
+  console.log('data.length is ', data.length)
+  if (data.length !== 0) {
+    const showUploadsHtml = showUploadsTemplate({ uploads: data })
+    $('#uploads-thumbnails').html(showUploadsHtml)
+  } else {
+    const showUploadsHtml = showUploadsTemplate({ uploads: data })
+    $('#uploads-thumbnails').html(showUploadsHtml)
+    $('#no-uploads-message').show()
+    $('#no-uploads-message').text('You don\'t have any files to display')
+    window.setTimeout(function () {
+      $('#no-uploads-message').fadeOut()
+    }, 3000)
+  }
   console.log('get User Uploads successfully')
 }
 
