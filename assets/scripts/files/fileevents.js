@@ -70,15 +70,6 @@ const onFileUploadAll = function (event) {
     .catch(fileui.fileCreateAllFailure)
 }
 
-const onGetUploads = function (event) {
-  event.preventDefault()
-  fileapi.getUploads()
-    // Code below is commented out until backend functionality is complete
-    .then(fileui.getUploadsSuccess)
-    .then(onDeleteUpload)
-    .catch(fileui.getUploadsFailure)
-}
-
 const onDeleteUpload = () => {
   $('.remove').on('click', function (event) {
     const index = $(event.target).attr('data-id')
@@ -114,6 +105,14 @@ const onGetUserUploads = function (event) {
     .catch(fileui.getUserUploadsFailure)
 }
 
+const onGetUploads = function (event) {
+  event.preventDefault()
+  fileapi.getUploads()
+    .then(fileui.getUploadsSuccess)
+    .then(onDeleteUpload)
+    .catch(fileui.getUploadsFailure)
+}
+
 // This sets the form value for pared URL received from Filestack
 function urlImport (getImageurl) {
   document.querySelector('.modal-url').value = getImageurl
@@ -132,7 +131,7 @@ const addFileHandlers = function () {
 module.exports = {
   onFileUpload,
   addFileHandlers,
-  onGetUploads,
   onDeleteUpload,
-  onFileUploadAll
+  onFileUploadAll,
+  onGetUploads
 }

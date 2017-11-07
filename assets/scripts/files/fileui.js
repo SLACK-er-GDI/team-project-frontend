@@ -31,7 +31,6 @@ const fileCreateAllFailure = () => {
 const getUploadsSuccess = (data) => {
   const showAllUploadsHtml = showAllUploadsTemplate({ uploads: data.upload })
   $('#uploads-thumbnails').html(showAllUploadsHtml)
-  $('#')
   console.log('got uploads successfully')
   console.log('get uploads data is ', data)
   $('#get-uploads-link').hide()
