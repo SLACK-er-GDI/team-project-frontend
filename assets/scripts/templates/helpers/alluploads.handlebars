@@ -11,7 +11,8 @@
                {{tag}}
                {{/each}}
                </p>
-               <div class="col-xs-12"><button data-id="{{upload.id}}" type="button"  class="download btn btn-link col-xs-12">Download</button></div>
+               <!-- <div class="col-xs-12"><button data-id="{{upload.id}}" type="button"  class="download btn btn-link col-xs-12">Download</button></div> -->
+               <form action={{upload.url}}?signature={{upload.signature}}&policy={{upload.policy}}"><input data-id="{{upload.id}}" type="submit" class="download btn btn-link col-xs-12" value="Download" /></form>
                <div class="clearfix"></div>
            </div>
          </div>
