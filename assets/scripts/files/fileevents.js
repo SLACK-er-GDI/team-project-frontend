@@ -70,6 +70,21 @@ const onDeleteUpload = () => {
   })
 }
 
+const checkboxChecker = (array) => {
+  $('#Animal').prop('checked', false)
+  $('#Landscape').prop('checked', false)
+  $('#Person').prop('checked', false)
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === 'animal') {
+      $('#Animal').prop('checked', true)
+    } else if (array[i] === 'landscape') {
+      $('#Landscape').prop('checked', true)
+    } else if (array[i] === 'person') {
+      $('#Person').prop('checked', true)
+    }
+  }
+}
+
 const editUpload = () => {
   $('.edit').off('click')
   $('.edit').on('click', function (event) {
@@ -77,10 +92,13 @@ const editUpload = () => {
     // $('#add-trail-button').show()
     const index = $(event.target).attr('data-id')
     fileapi.getUserUpload(index).then(function (data) {
-      // const title = data.upload.title
+      const title = data.upload.title
       // const url = data.update.url
       // const tags = data.update.tags
       store.uploadId = data.upload.id
+      checkboxChecker(data.upload.tags)
+      // $('#Animal').prop('checked', true)
+      $("input[name='upload[title]'").val(title)
       console.log('store.uploadId is', store.uploadId)
     })
   })
@@ -91,8 +109,10 @@ const updateUpload = () => {
   $('#edit-upload-form').on('submit', function (event) {
     event.preventDefault()
     const data = getFormFields(this)
-    console.log('this is data', data)
-    console.log('this is store', store.uploadId)
+    if (data.tags !== null) {
+      data.upload['tags'] = Object.keys(data.tags)
+    }
+    console.log(data)
     fileapi.updateUpload(data, store.uploadId)
       .then(fileui.updateUploadSuccess)
       .then(getUploadsRefresh)

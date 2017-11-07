@@ -3,7 +3,7 @@
         <div class="col-sm-6 col-md-3">
            <div class="thumbnail">
                <h4>{{upload.title}}</h4>
-               <img src="{{upload.url}}" alt="...">
+               <img src="{{upload.url}}" onerror=this.src="https://i.imgur.com/TZljVDd.jpg">
                <script>console.log('This is upload: ', {{upload}})</script>
                <!-- <p>{{upload.tags}}</p> -->
                <p>Tags:
