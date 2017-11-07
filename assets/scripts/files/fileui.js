@@ -6,6 +6,10 @@ const showAllUploadsTemplate = require('../templates/helpers/alluploads.handleba
 
 const fileCreateSuccess = () => {
   console.log('file created successfully')
+  $('#file-upload-modal').modal('hide')
+  $('#file-upload-modal').on('hidden.bs.modal', function () {
+    $(this).find('form').trigger('reset')
+  })
 }
 
 const fileCreateFailure = () => {

@@ -71,16 +71,16 @@
           <form id="sign-up">
             <div class="form-group">
               <label for="sign-in-email" class="col-form-label">Email</label>
-              <input type="email" name="credentials[email]" class="form-control" id="sign-in-email" placeholder="Email">
+              <input type="email" name="credentials[email]" class="form-control" id="sign-in-email" placeholder="Email" required>
             </div>
             <div class="form-group">
               <label for="sign-in-password" class="col-form-label">Password</label>
-              <input type="password" name="credentials[password]" class="form-control" id="sign-in-password" placeholder="Password">
+              <input type="password" name="credentials[password]" class="form-control" id="sign-in-password" placeholder="Password" required>
             </div>
             <div class="form-group">
               <label for="sign-in-password" class="col-form-label">Confirm Password</label>
               <input type="password" name="credentials[password_confirmation]" class="form-control" id="sign-up-password-confirmation"
-                placeholder="Confirm Password">
+                placeholder="Confirm Password" required>
             </div>
         </div>
         <div class="modal-footer">
@@ -109,11 +109,11 @@
           <form id="sign-in">
             <div class="form-group">
               <label for="sign-in-email" class="col-form-label">Email</label>
-              <input type="email" name="credentials[email]" class="form-control" id="sign-in-email" placeholder="Email">
+              <input type="email" name="credentials[email]" class="form-control" id="sign-in-email" placeholder="Email" required>
             </div>
             <div class="form-group">
               <label for="sign-in-password" class="col-form-label">Password</label>
-              <input type="password" name="credentials[password]" class="form-control" id="sign-in-password" placeholder="Password">
+              <input type="password" name="credentials[password]" class="form-control" id="sign-in-password" placeholder="Password" required>
             </div>
         </div>
         <div class="modal-footer">
@@ -142,11 +142,11 @@
           <form id="change-password">
             <div class="form-group">
               <label for="old-password" class="col-form-label">Current Password</label>
-              <input type="password" name="passwords[old]" class="form-control" id="change-password-old" placeholder="Old Password">
+              <input type="password" name="passwords[old]" class="form-control" id="change-password-old" placeholder="Old Password" required>
             </div>
             <div class="form-group">
               <label for="new-password" class="col-form-label">New Password</label>
-              <input type="password" name="passwords[new]" class="form-control" id="change-password-new" placeholder="New Password">
+              <input type="password" name="passwords[new]" class="form-control" id="change-password-new" placeholder="New Password" required>
             </div>
         </div>
         <div class="modal-footer">
@@ -170,7 +170,7 @@
           <form id="file-upload-form">
             <div class="form-group">
               <label class="col-form-label">Title</label>
-              <input type="text" name="upload[title]" class="form-control" id="file-upload-title" placeholder="Title">
+              <input type="text" name="upload[title]" class="form-control" id="file-upload-title" placeholder="Title" required>
             </div>
             <div class="form-group">
               <label nclass="col-2 col-form-label">Select Image</label>
@@ -179,7 +179,7 @@
 
                 <!-- <input class="test" type="button" value="Upload" /> -->
                 <!-- add hidden to this form control 'sr-only' maybe add readonly for security?-->
-                <input class="modal-url form-control" type="url" name="upload[url]">
+                <input class="modal-url form-control" type="url" name="upload[url]" required>
               </div>
             </div>
         </div>
