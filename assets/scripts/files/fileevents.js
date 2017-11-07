@@ -8,7 +8,7 @@ const store = require('../store')
 // Function for lauching Filestack uploader
 const fsClient = filestack.init('Ar0N2R53YQky6sT5yTl3Kz')
 
-function openPicker() {
+function openPicker () {
   fsClient.pick({
     // Controls where users can select files from
     fromSources: ["local_file_system", "url", "imagesearch", "facebook", "instagram", "googledrive", "dropbox"],
@@ -19,7 +19,7 @@ function openPicker() {
     // Response is the object that Filestack returns aftre upload is complete
   }).then(function(response) {
     // getImageurl parses out the URL received from Filestack and stores it in variable
-     let getImageurl = response.filesUploaded[0].url
+     const getImageurl = response.filesUploaded[0].url
     //const Call function to place the Filestack URL in the form field
     urlImport(getImageurl)
     // handleFilestack(response)
