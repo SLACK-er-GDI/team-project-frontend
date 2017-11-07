@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-  <title>Example</title>
+  <title>Bucket</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Do not add `link` tags-->
@@ -22,10 +21,16 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a href="#" class="navbar-brand nav-links">Files</a>
+      <a href="#" class="navbar-brand nav-links" id="files-link">Files</a>
     </div>
     <div class="collapse navbar-collapse" id="nav-links">
       <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href="#" class="nav-links" id="get-user-uploads-link" data-target="#sign-up-form">Get My Files</a>
+        </li>
+        <li>
+          <a href="#" class="nav-links" id="get-uploads-link" data-target="#sign-up-form">Get All Files</a>
+        </li>
         <li>
           <a href="#" class="nav-links" id="sign-up-link" data-toggle="modal" data-target="#sign-up-form">Sign Up</a>
         </li>
@@ -41,16 +46,15 @@
         <li>
           <a href="#" class="nav-links" id="file-upload-link" data-toggle="modal" data-target="#file-upload-modal">File Upload</a>
         </li>
-        <li data-user="no-user">
+        <!-- <li data-user="no-user">
           <a href="#login-modal" data-toggle="modal">
             <span class="glyphicon glyphicon-log-in"></span> Login</a>
-        </li>
+        </li> -->
 
       </ul>
     </div>
   </div>
 </nav>
-</div>
 
 <body class="container-fluid">
 
@@ -61,8 +65,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="sign-up-message">Sign Up</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          </button>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <form id="sign-up">
@@ -84,7 +87,7 @@
           <li class="footer-message">
             <a href="#sign-ui-form" id="sign-in-form-footer" data-toggle="modal" data-target="#sign-in-form">Already a member? Click here to sign in.</a>
           </li>
-          <button type="button" class="btn btn-secondary modal-button" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-info modal-button" data-dismiss="modal">Close</button>
           <button type="submit" name="submit" class="btn btn-primary modal-button">Sign Up</button>
         </div>
         </form>
@@ -117,7 +120,7 @@
           <li class="footer-message">
             <a href="#sign-up-form" id="sign-up-form-footer" data-toggle="modal" data-target="#sign-up-form">No account? Click here to sign up!</a>
           </li>
-          <button type="button" class="btn btn-secondary modal-button" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-info modal-button" data-dismiss="modal">Close</button>
           <button type="submit" name="submit" class="btn btn-primary modal-button">Sign In</button>
         </div>
         </form>
@@ -147,7 +150,7 @@
             </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary modal-button" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-info modal-button" data-dismiss="modal">Close</button>
           <button type="submit" name="submit" class="btn btn-primary modal-button">Change Password</button>
         </div>
         </form>
@@ -160,9 +163,8 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Upload a File</h5>
+          <h5 class="modal-title">Select a File</h5>
           <span aria-hidden="true">&times;</span>
-          </button>
         </div>
         <div class="modal-body">
           <form id="file-upload-form">
@@ -171,9 +173,9 @@
               <input type="text" name="upload[title]" class="form-control" id="file-upload-title" placeholder="Title">
             </div>
             <div class="form-group">
-              <label nclass="col-2 col-form-label">Upload Image</label>
+              <label nclass="col-2 col-form-label">Select Image</label>
               <div class="col-10">
-                <button type="button" class="btn btn-primary modal-button file-picker-button">upload</button>
+                <button type="button" class="btn btn-primary modal-button file-picker-button">Browse</button>
 
                 <!-- <input class="test" type="button" value="Upload" /> -->
                 <!-- add hidden to this form control 'sr-only' maybe add readonly for security?-->
@@ -185,11 +187,11 @@
           <div class="row">
                <div class="col-lg-12">
                  <div class="button-group">
-                    <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown"></span> <span class="caret"></span>Add Tags</button>
+                    <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown"><span class="caret"></span>Add Tags</button>
                       <ul class="dropdown-menu">
-                        <li><a href="#" class="small" data-value="option1" tabIndex="-1"><input type="checkbox" name="upload[tags]"/>&nbsp;Animal</a></li>
-                        <li><a href="#" class="small" data-value="option2" tabIndex="-1"><input type="checkbox" name="upload[tags]"/>&nbsp;Landscape</a></li>
-                        <li><a href="#" class="small" data-value="option3" tabIndex="-1"><input type="checkbox" name="upload[tags]"/>&nbsp;Person</a></li>
+                        <li><a href="#" class="small" data-value="Animal" tabIndex="-1"><input type="checkbox" name="tags[animal]"/>&nbsp;Animal</a></li>
+                        <li><a href="#" class="small" data-value="Landscape" tabIndex="-1"><input type="checkbox" name="tags[landscape]"/>&nbsp;Landscape</a></li>
+                        <li><a href="#" class="small" data-value="Person" tabIndex="-1"><input type="checkbox" name="tags[person]"/>&nbsp;Person</a></li>
                       </ul>
               </div>
               </div>
@@ -197,7 +199,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-primary modal-button" data-dismiss="modal">Close</button>
-          <button type="submit" name="submit" class="btn btn-primary modal-button">Save</button>
+          <button type="submit" name="submit" class="btn btn-primary modal-button">Upload</button>
         </div>
         </form>
       </div>
@@ -205,7 +207,7 @@
   </div>
 
 
-  <form>
+  <form id="file-picker-form">
     First name:
     <br>
     <input type="text" name="firstname">
@@ -215,6 +217,12 @@
   </form>
   <!-- web search and url work outside of form field -->
 
+
+  <div class="container">
+      <div class="row" id="uploads-thumbnails">
+         <!-- handlebars code append here -->
+  	  </div>
+  </div>
 
 
 </body>

@@ -1,0 +1,18 @@
+{{#each uploads as |upload|}}
+<!-- go through uploads array and do something on each one -->
+        <div class="col-sm-6 col-md-3">
+           <div class="thumbnail">
+               <h4>{{upload.title}}</h4>
+               <img src="{{upload.url}}" onerror=this.src="https://i.imgur.com/TZljVDd.jpg">
+              <script>console.log('This is upload: ', {{upload}})</script>
+               <!-- <p>{{upload.tags}}</p> -->
+               <p>Tags:
+               {{#each upload.tags as |tag|}}
+               {{tag}}
+               {{/each}}
+               </p>
+               <div class="col-xs-12"><button data-id="{{upload.id}}" type="button"  class="download btn btn-link col-xs-12">Download</button></div>
+               <div class="clearfix"></div>
+           </div>
+         </div>
+{{/each}}

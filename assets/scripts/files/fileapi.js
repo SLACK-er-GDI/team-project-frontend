@@ -17,6 +17,29 @@ const fileUpload = function (data) {
   })
 }
 
+const getUploads = function () {
+  return $.ajax({
+    url: config.apiOrigin + '/uploads',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const deleteUpload = function (data) {
+  console.log('api data is ', data)
+  return $.ajax({
+    url: config.apiOrigin + '/uploads/' + data,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
-  fileUpload
+  fileUpload,
+  getUploads,
+  deleteUpload
 }
