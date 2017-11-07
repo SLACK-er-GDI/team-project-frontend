@@ -1,7 +1,10 @@
 'use strict'
 
+import filestack from 'filestack-js'
+
 const config = require('../config')
 const store = require('../store')
+// const filestackSecurity = require('./filestack')
 
 // Used to send title, link to file, and tags to DB
 // Currently commented out until backend functionality is completed
@@ -37,6 +40,8 @@ const deleteUpload = function (data) {
     }
   })
 }
+
+
 
 module.exports = {
   fileUpload,
