@@ -51,7 +51,7 @@ const onGetUploads = function (event) {
     // Code below is commented out until backend functionality is complete
     .then(fileui.getUploadsSuccess)
     .then(onDeleteUpload)
-    .then(onEditUpload)
+    // .then(onEditUpload)
     .catch(fileui.getUploadsFailure)
 }
 
@@ -67,18 +67,24 @@ const onDeleteUpload = () => {
   })
 }
 
-const onEditUpload = () => {
-  $('.edit').on('submit', function (event) {
-    const index = $(event.target).attr('data-id')
+let editUploadId = ''
+const onEditUpload = (event) => {
+  event.preventDefault()
+  console.log(event)
+  // $('.edit').on('click', function (event) {
+    // event.preventDefault()
+    // console.log('Clicked')
+    // editUploadId = $(event.target).attr('data-id')
+    const id = editUploadId
     const data = getFormFields(event.target)
     console.log(data)
-    console.log('index is', index)
-    fileapi.editUpload(index, data)
-    // Code below is commented out until backend functionality is complete
-      .then(fileui.editUploadSuccess)
-      .then(getUploadsRefresh)
-      .catch(fileui.editUploadFailure)
-  })
+    console.log('index is', id)
+    // fileapi.editUpload(index, data)
+    // // Code below is commented out until backend functionality is complete
+    //   .then(fileui.editUploadSuccess)
+    //   .then(getUploadsRefresh)
+    //   .catch(fileui.editUploadFailure)
+  // })
 }
 
 const filterUserUploads = function (array) {
@@ -101,6 +107,7 @@ const onGetUserUploads = function (event) {
     .then(filterUserUploads)
     .then(fileui.getUserUploadsSuccess)
     .then(onDeleteUpload)
+    // .then(onEditUpload)
     .catch(fileui.getUserUploadsFailure)
 }
 
@@ -116,6 +123,16 @@ const addFileHandlers = function () {
   $('#file-upload-form').on('submit', onFileUpload)
   $('#get-uploads-link').on('click', onGetUploads)
   $('#get-user-uploads-link').on('click', onGetUserUploads)
+  $('#edit-upload-form').on('submit', onEditUpload)
+  $('.upload-tiles').on('click', '.edit', function () {
+    $('#edit-upload-modal').modal('show')
+  })
+  $('.upload-tiles').on('click', '.edit', function () {
+    event.preventDefault()
+    editUploadId = $(this).data('id')
+    fileapi.showUpload(editUploadId)
+      .then(console.log)
+  })
 }
 
 module.exports = {
