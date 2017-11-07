@@ -1,7 +1,8 @@
 'use strict'
 
 // const fileapi = require('./fileapi')
-const showUploadsTemplate = require('../templates/helpers/alluploads.handlebars')
+const showUploadsTemplate = require('../templates/helpers/user-uploads.handlebars')
+const showAllUploadsTemplate = require('../templates/helpers/alluploads.handlebars')
 
 const fileCreateSuccess = () => {
   console.log('file created successfully')
@@ -12,8 +13,8 @@ const fileCreateFailure = () => {
 }
 
 const getUploadsSuccess = (data) => {
-  const showUploadsHtml = showUploadsTemplate({ uploads: data.upload })
-  $('#uploads-thumbnails').html(showUploadsHtml)
+  const showAllUploadsHtml = showAllUploadsTemplate({ uploads: data.upload })
+  $('#uploads-thumbnails').html(showAllUploadsHtml)
 
   console.log('got uploads successfully')
   console.log('get uploads data is ', data)
