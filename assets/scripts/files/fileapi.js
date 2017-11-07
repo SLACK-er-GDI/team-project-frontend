@@ -38,8 +38,22 @@ const deleteUpload = function (data) {
   })
 }
 
+const editUpload = function (index, data) {
+  console.log('api data is ', data)
+  console.log('api index is ', index)
+  return $.ajax({
+    url: config.apiOrigin + '/uploads/' + data,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
 module.exports = {
   fileUpload,
   getUploads,
-  deleteUpload
+  deleteUpload,
+  editUpload
 }

@@ -12,6 +12,7 @@ const fileCreateFailure = () => {
 }
 
 const getUploadsSuccess = (data) => {
+  console.log('uploads data is', data)
   const showUploadsHtml = showUploadsTemplate({ uploads: data.upload })
   $('#uploads-thumbnails').html(showUploadsHtml)
 
@@ -43,6 +44,15 @@ const getUserUploadsFailure = () => {
   console.log('get User Uploads failed...... shit')
 }
 
+const editUploadSuccess = (data) => {
+  console.log('edit upload successfully')
+  console.log('edit upload data is ', data)
+}
+
+const editUploadFailure = () => {
+  console.log('edit upload failed...... shit')
+}
+
 module.exports = {
   fileCreateSuccess,
   fileCreateFailure,
@@ -51,5 +61,7 @@ module.exports = {
   deleteUploadFailure,
   deleteUploadSuccess,
   getUserUploadsFailure,
-  getUserUploadsSuccess
+  getUserUploadsSuccess,
+  editUploadSuccess,
+  editUploadFailure
 }

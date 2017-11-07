@@ -51,6 +51,7 @@ const onGetUploads = function (event) {
     // Code below is commented out until backend functionality is complete
     .then(fileui.getUploadsSuccess)
     .then(onDeleteUpload)
+    .then(onEditUpload)
     .catch(fileui.getUploadsFailure)
 }
 
@@ -63,6 +64,20 @@ const onDeleteUpload = () => {
       .then(fileui.deleteUploadSuccess)
       .then(getUploadsRefresh)
       .catch(fileui.deleteUploadFailure)
+  })
+}
+
+const onEditUpload = () => {
+  $('.edit').on('submit', function (event) {
+    const index = $(event.target).attr('data-id')
+    const data = getFormFields(event.target)
+    console.log(data)
+    console.log('index is', index)
+    fileapi.editUpload(index, data)
+    // Code below is commented out until backend functionality is complete
+      .then(fileui.editUploadSuccess)
+      .then(getUploadsRefresh)
+      .catch(fileui.editUploadFailure)
   })
 }
 
@@ -107,5 +122,6 @@ module.exports = {
   onFileUpload,
   addFileHandlers,
   onGetUploads,
-  onDeleteUpload
+  onDeleteUpload,
+  onEditUpload
 }
