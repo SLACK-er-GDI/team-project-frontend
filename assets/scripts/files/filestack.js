@@ -3,35 +3,18 @@ import filestack from 'filestack-js'
 const config = require('../config')
 const store = require('../store')
 
+let newSecurity
+
 const getFilestackPolicy = function () {
   return $.ajax({
     url:  'http://localhost:4741/filestack',
     method: 'GET'
-    // headers: {
-    //   Authorization: 'Token token=' + store.user.token
-    // }
   }).then((security) => {
-    console.log('security ran', security)
-    newSecurity = security
-    console.log('newsec', newSecurity)
-    // fsClient = filestack.init('Ar0N2R53YQky6sT5yTl3Kz', security)
-    console.log('after security', fsClient)
+    fsClient = filestack.init('Ar0N2R53YQky6sT5yTl3Kz', security)
   })
 }
-let newSecurity
-let fsClient = filestack.init('Ar0N2R53YQky6sT5yTl3Kz', {policy: "eyJleHBpcnkiOjE1MTAwMzgwMDB9", signature: "c86d3375044c287f11548c2d3aa907f9a1993aaa6a1388e9e0da932fec75e0dc"})                                                                  
-console.log('immeidate', fsClient)
-// = filestack.init('Ar0N2R53YQky6sT5yTl3Kz', {
-  // policy:"eyJleHBpcnkiOjE1MTAwMzA4MDB9",
-  // signature:"183d764a4e0be552bb514d96f9b1915e8b292edddf625b1b59df9b3e5b5272f6"
-// })
 
-
-
-
-// ajaxy('/myRoute').then((security) => {
-//   fsClient = fsClient.init(API_KEY, security)
-// })
+let fsClient
 
 function openPicker () {
   console.log('picker', fsClient)
@@ -64,5 +47,6 @@ const addFileStackHandlers = function () {
 module.exports = {
   addFileStackHandlers,
   fsClient,
-  getFilestackPolicy
+  getFilestackPolicy,
+  newSecurity
 }
