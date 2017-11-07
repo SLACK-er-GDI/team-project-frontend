@@ -34,6 +34,13 @@ const getUploadsRefresh = function (event) {
     .catch(fileui.getUserUploadsFailure)
 }
 
+const getAllUploadsRefresh = function (event) {
+  console.log('get all uploads refresh is being called')
+  fileapi.getUploads()
+    .then(fileui.getUploadsSuccess)
+    .catch(fileui.getUploadsFailure)
+}
+
 const onFileUpload = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
@@ -44,7 +51,23 @@ const onFileUpload = function (event) {
   fileapi.fileUpload(data)
     // Code below is commented out until backend functionality is complete
     .then(fileui.fileCreateSuccess)
+    .then(getUploadsRefresh)
     .catch(fileui.fileCreateFailure)
+}
+
+const onFileUploadAll = function (event) {
+  console.log('onFileUploadAll is being called')
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  if (!jQuery.isEmptyObject(data.tags)) {
+    data.upload['tags'] = Object.keys(data.tags)
+  }
+  console.log(data)
+  fileapi.fileUpload(data)
+    // Code below is commented out until backend functionality is complete
+    .then(fileui.fileCreateAllSuccess)
+    .then(getAllUploadsRefresh)
+    .catch(fileui.fileCreateAllFailure)
 }
 
 const onGetUploads = function (event) {
@@ -101,6 +124,7 @@ const addFileHandlers = function () {
   $('.file-picker-button').on('click', openPicker)
   // When user saves form, the function that stores the form info is called
   $('#file-upload-form').on('submit', onFileUpload)
+  $('#file-upload-all-form').on('submit', onFileUploadAll)
   $('#get-uploads-link').on('click', onGetUploads)
   $('#get-user-uploads-link').on('click', onGetUserUploads)
 }
@@ -109,5 +133,6 @@ module.exports = {
   onFileUpload,
   addFileHandlers,
   onGetUploads,
-  onDeleteUpload
+  onDeleteUpload,
+  onFileUploadAll
 }
