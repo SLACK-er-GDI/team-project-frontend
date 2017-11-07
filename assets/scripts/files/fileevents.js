@@ -36,7 +36,7 @@ const onFileUpload = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   if (data.tags !== null) {
-    data.upload['tags'] = data.tags
+    data.upload['tags'] = Object.keys(data.tags)
   }
   console.log(data)
   fileapi.fileUpload(data)
