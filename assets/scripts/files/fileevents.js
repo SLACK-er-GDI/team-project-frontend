@@ -31,6 +31,8 @@ const getUploadsRefresh = function (event) {
     .then(filterUserUploads)
     .then(fileui.getUserUploadsSuccess)
     .then(onDeleteUpload)
+    .then(editUpload)
+    .then(updateUpload)
     .catch(fileui.getUserUploadsFailure)
 }
 
@@ -68,6 +70,36 @@ const onDeleteUpload = () => {
   })
 }
 
+const editUpload = () => {
+  $('.edit').off('click')
+  $('.edit').on('click', function (event) {
+    // $('#add-trail-div').hide()
+    // $('#add-trail-button').show()
+    const index = $(event.target).attr('data-id')
+    fileapi.getUserUpload(index).then(function (data) {
+      // const title = data.upload.title
+      // const url = data.update.url
+      // const tags = data.update.tags
+      store.uploadId = data.upload.id
+      console.log('store.uploadId is', store.uploadId)
+    })
+  })
+}
+
+const updateUpload = () => {
+  $('#edit-upload-form').off('submit')
+  $('#edit-upload-form').on('submit', function (event) {
+    event.preventDefault()
+    const data = getFormFields(this)
+    console.log('this is data', data)
+    console.log('this is store', store.uploadId)
+    fileapi.updateUpload(data, store.uploadId)
+      .then(fileui.updateUploadSuccess)
+      .then(getUploadsRefresh)
+      .catch(fileui.updateUploadFailure)
+  })
+}
+
 const filterUserUploads = function (array) {
   const userArray = []
   for (let i = 0; i < array.upload.length; i++) {
@@ -88,6 +120,8 @@ const onGetUserUploads = function (event) {
     .then(filterUserUploads)
     .then(fileui.getUserUploadsSuccess)
     .then(onDeleteUpload)
+    .then(editUpload)
+    .then(updateUpload)
     .catch(fileui.getUserUploadsFailure)
 }
 

@@ -44,6 +44,14 @@ const getUserUploadsFailure = () => {
   console.log('get User Uploads failed...... shit')
 }
 
+const updateUploadSuccess = () => {
+  console.log('update upload successfully')
+}
+
+const updateUploadFailure = () => {
+  console.log('update upload failed...... shit')
+}
+
 module.exports = {
   fileCreateSuccess,
   fileCreateFailure,
@@ -52,5 +60,7 @@ module.exports = {
   deleteUploadFailure,
   deleteUploadSuccess,
   getUserUploadsFailure,
-  getUserUploadsSuccess
+  getUserUploadsSuccess,
+  updateUploadSuccess,
+  updateUploadFailure
 }
