@@ -10,7 +10,12 @@ const getFilestackPolicy = function () {
     url:  'http://localhost:4741/filestack',
     method: 'GET'
   }).then((security) => {
-    fsClient = filestack.init('Ar0N2R53YQky6sT5yTl3Kz', security)
+    let api = security.api
+    let policyAndSignature = {
+      policy: security.policy,
+      signature: security.signature
+    }
+    fsClient = filestack.init(api, policyAndSignature)
   })
 }
 
