@@ -28,8 +28,10 @@ function openPicker() {
 
 const getUploadsRefresh = function (event) {
   fileapi.getUploads()
-    .then(fileui.getUploadsSuccess)
-    .catch(fileui.getUploadsFailure)
+    .then(filterUserUploads)
+    .then(fileui.getUserUploadsSuccess)
+    .then(onDeleteUpload)
+    .catch(fileui.getUserUploadsFailure)
 }
 
 const onFileUpload = function (event) {
