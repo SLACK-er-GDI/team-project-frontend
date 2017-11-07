@@ -46,6 +46,8 @@ const getUserUploadsFailure = () => {
 
 const updateUploadSuccess = () => {
   console.log('update upload successfully')
+  $('#edit-upload-modal').modal('hide')
+  $('#edit-upload-form')[0].reset()
 }
 
 const updateUploadFailure = () => {
