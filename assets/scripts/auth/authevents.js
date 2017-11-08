@@ -4,6 +4,16 @@ const getFormFields = require(`../../../lib/get-form-fields`)
 const authapi = require('./authapi')
 const authui = require('./authui')
 
+const onSignInFormShow = function (event) {
+  event.preventDefault()
+  $('#sign-up-form').hide()
+}
+
+const onSignUpFormShow = function (event) {
+  event.preventDefault()
+  $('#sign-in-form').hide()
+}
+
 const onSignUp = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
@@ -42,6 +52,8 @@ const addAuthHandlers = function () {
   $('#sign-in').on('submit', onSignIn)
   $('#change-password').on('submit', onChangePassword)
   $('#sign-out-link').on('click', onSignOut)
+  $('#sign-in-form').on('focus', onSignInFormShow)
+  $('#sign-up-form').on('focus', onSignUpFormShow)
   authui.initializeForm()
 }
 
