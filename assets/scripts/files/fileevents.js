@@ -72,8 +72,15 @@ const onDeleteUpload = () => {
 
 const checkboxChecker = (array) => {
   $('#Animal').prop('checked', false)
-  $('#Landscape').prop('checked', false)
+  $('#Art').prop('checked', false)
+  $('#Business').prop('checked', false)
+  $('#Cities').prop('checked', false)
+  $('#Entertainment').prop('checked', false)
+  $('#Food').prop('checked', false)
+  $('#Landscapes').prop('checked', false)
   $('#Person').prop('checked', false)
+  $('#People').prop('checked', false)
+  $('#Science').prop('checked', false)
   for (let i = 0; i < array.length; i++) {
     if (array[i] === 'Animal') {
       $('#Animal').prop('checked', true)
