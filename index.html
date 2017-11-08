@@ -43,6 +43,9 @@
           <a href="#" class="nav-links" id="file-upload-link" data-toggle="modal" data-target="#file-upload-modal">File Upload</a>
         </li>
         <li>
+          <a href="#" class="nav-links" id="file-upload-all-link" data-toggle="modal" data-target="#file-upload-all-modal">File Upload</a>
+        </li>
+        <li>
           <a href="#" class="nav-links" id="change-password-link" data-toggle="modal" data-target="#change-password-form">Change Password</a>
         </li>
         <li>
@@ -208,6 +211,64 @@
     </div>
   </div>
 </div>
+
+  <!-- File upload ALL modal -->
+  <div class="modal fade" id="file-upload-all-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Select a File</h5>
+          <span aria-hidden="true">&times;</span>
+        </div>
+        <div class="modal-body">
+          <form id="file-upload-all-form">
+            <div class="form-group">
+              <label class="col-form-label">Title</label>
+              <input type="text" name="upload[title]" class="form-control" id="file-upload-title" placeholder="Title" required>
+            </div>
+            <div class="form-group">
+              <label nclass="col-2 col-form-label">Select Image</label>
+              <div class="col-10">
+                <button type="button" class="btn btn-primary modal-button file-picker-button">Browse</button>
+
+                <!-- <input class="test" type="button" value="Upload" /> -->
+                <!-- add hidden to this form control 'sr-only' maybe add readonly for security?-->
+                <input class="modal-url form-control" type="url" name="upload[url]" required>
+              </div>
+            </div>
+        </div>
+        <div class="container">
+          <div class="row">
+               <div class="col-lg-12">
+                 <div class="button-group">
+                    <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown"><span class="caret"></span>Add Tags</button>
+                      <ul class="dropdown-menu">
+                        <li><a href="#" class="small" data-value="Animal" tabIndex="-1"><input type="checkbox" name="tags[animal]"/>&nbsp;Animal</a></li>
+                        <li><a href="#" class="small" data-value="Landscape" tabIndex="-1"><input type="checkbox" name="tags[landscape]"/>&nbsp;Landscape</a></li>
+                        <li><a href="#" class="small" data-value="Person" tabIndex="-1"><input type="checkbox" name="tags[person]"/>&nbsp;Person</a></li>
+                      </ul>
+              </div>
+              </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary modal-button" data-dismiss="modal">Close</button>
+          <button type="submit" name="submit" class="btn btn-primary modal-button">Upload</button>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
 
   <div class="alert alert-warning" id="no-uploads-message"></div>
 

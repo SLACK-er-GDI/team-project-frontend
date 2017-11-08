@@ -16,12 +16,27 @@ const fileCreateFailure = () => {
   console.log('file create failed...... shit')
 }
 
+const fileCreateAllSuccess = () => {
+  console.log('file created successfully')
+  $('#file-upload-all-modal').modal('hide')
+  $('#file-upload-all-modal').on('hidden.bs.modal', function () {
+    $(this).find('form').trigger('reset')
+  })
+}
+
+const fileCreateAllFailure = () => {
+  console.log('file create failed...... shit')
+}
+
 const getUploadsSuccess = (data) => {
   const showAllUploadsHtml = showAllUploadsTemplate({ uploads: data.upload })
   $('#uploads-thumbnails').html(showAllUploadsHtml)
-
   console.log('got uploads successfully')
   console.log('get uploads data is ', data)
+  $('#get-uploads-link').hide()
+  $('#file-upload-all-link').show()
+  $('#file-upload-link').hide()
+  $('#get-user-uploads-link').show()
 }
 
 const getUploadsFailure = () => {
@@ -52,6 +67,10 @@ const getUserUploadsSuccess = (data) => {
     }, 3000)
   }
   console.log('get User Uploads successfully')
+  $('#get-uploads-link').show()
+  $('#file-upload-all-link').hide()
+  $('#file-upload-link').show()
+  $('#get-user-uploads-link').hide()
 }
 
 const getUserUploadsFailure = () => {
@@ -66,5 +85,7 @@ module.exports = {
   deleteUploadFailure,
   deleteUploadSuccess,
   getUserUploadsFailure,
-  getUserUploadsSuccess
+  getUserUploadsSuccess,
+  fileCreateAllSuccess,
+  fileCreateAllFailure
 }
