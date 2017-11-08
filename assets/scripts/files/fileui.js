@@ -31,6 +31,7 @@ const fileCreateAllFailure = () => {
 }
 
 const getUploadsSuccess = (data) => {
+
   console.log('data is', data)
   const policy = store.policy
   console.log('policy', policy)
@@ -44,6 +45,7 @@ const getUploadsSuccess = (data) => {
   const showUploadsHtml = showAllUploadsTemplate({ uploads: newData })
   console.log(data.upload)
   $('#uploads-thumbnails').html(showUploadsHtml)
+  $('[data-toggle="popover"]').popover()
 
   console.log('got uploads successfully')
   console.log('get uploads data is ', data)
@@ -81,6 +83,7 @@ const getUserUploadsSuccess = (data) => {
   } else {
     const showUploadsHtml = showUploadsTemplate({ uploads: data })
     $('#uploads-thumbnails').html(showUploadsHtml)
+    $('[data-toggle="popover"]').popover()
     $('#no-uploads-message').show()
     $('#no-uploads-message').text('You don\'t have any files to display')
     window.setTimeout(function () {

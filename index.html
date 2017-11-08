@@ -183,7 +183,7 @@
               <input maxlength="75" type="text" name="upload[description]" class="form-control" id="file-upload-description">
             </div>
             <div class="form-group">
-              <label nclass="col-2 col-form-label">Select Image</label>
+              <label class="col-2 col-form-label">Select Image</label>
               <div class="col-10">
                 <button type="button" class="btn btn-primary modal-button file-picker-button">Browse</button>
 
@@ -192,20 +192,26 @@
                 <input class="modal-url form-control" type="url" name="upload[url]" required>
               </div>
             </div>
-              <div class="container">
-                <div class="row">
-                  <div class="col-lg-12">
-                    <div class="button-group">
-                      <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown"><span class="caret"></span>Add Tags</button>
-                        <ul class="dropdown-menu">
-                          <li><a href="#" class="small" data-value="Animal" tabIndex="-1"><input type="checkbox" name="tags[animal]"/>&nbsp;Animal</a></li>
-                          <li><a href="#" class="small" data-value="Landscape" tabIndex="-1"><input type="checkbox" name="tags[landscape]"/>&nbsp;Landscape</a></li>
-                          <li><a href="#" class="small" data-value="Person" tabIndex="-1"><input type="checkbox" name="tags[person]"/>&nbsp;Person</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                </div>
+            <div class="container">
+              <div class="row">
+                   <div class="col-lg-12">
+                     <div class="button-group">
+                        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown"><span class="caret"></span>Add Tags</button>
+                          <ul class="dropdown-menu">
+                            <li><a href="#" class="small" data-value="Animal" tabIndex="-1"><input type="checkbox" name="tags[Animal]"/>&nbsp;Animal</a></li>
+                            <li><a href="#" class="small" data-value="Art" tabIndex="-1"><input type="checkbox" name="tags[Art]"/>&nbsp;Art</a></li>
+                            <li><a href="#" class="small" data-value="Business" tabIndex="-1"><input type="checkbox" name="tags[Business]"/>&nbsp;Business</a></li>
+                            <li><a href="#" class="small" data-value="Cities" tabIndex="-1"><input type="checkbox" name="tags[Cities]"/>&nbsp;Cities</a></li>
+                            <li><a href="#" class="small" data-value="Entertainment" tabIndex="-1"><input type="checkbox" name="tags[Entertainment]"/>&nbsp;Entertainment</a></li>
+                            <li><a href="#" class="small" data-value="Food" tabIndex="-1"><input type="checkbox" name="tags[Food]"/>&nbsp;Food</a></li>
+                            <li><a href="#" class="small" data-value="Landscapes" tabIndex="-1"><input type="checkbox" name="tags[Landscapes]"/>&nbsp;Landscapes</a></li>
+                            <li><a href="#" class="small" data-value="People" tabIndex="-1"><input type="checkbox" name="tags[People]"/>&nbsp;People</a></li>
+                            <li><a href="#" class="small" data-value="Science" tabIndex="-1"><input type="checkbox" name="tags[Science]"/>&nbsp;Science</a></li>
+                          </ul>
+                  </div>
+                  </div>
               </div>
+            </div>
               <div class="modal-footer">
           <button type="button" class="btn btn-primary modal-button" data-dismiss="modal">Close</button>
           <button type="submit" name="submit" class="btn btn-primary modal-button">Upload</button>
@@ -229,6 +235,10 @@
             <div class="form-group">
               <label class="col-form-label">Title</label>
               <input type="text" name="upload[title]" class="form-control" id="file-upload-title" placeholder="Title" required>
+            </div>
+            <div class="form-group">
+              <label class="col-form-label">Description</label>
+              <input maxlength="75" type="text" name="upload[description]" class="form-control" id="file-upload-all-description">
             </div>
             <div class="form-group">
               <label nclass="col-2 col-form-label">Select Image</label>
