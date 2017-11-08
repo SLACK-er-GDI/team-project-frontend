@@ -41,7 +41,7 @@ const getUploadsSuccess = (data) => {
     newData.push(data.upload[i])
   }
   console.log(newData.upload)
-  const showUploadsHtml = showUploadsTemplate({ uploads: newData })
+  const showUploadsHtml = showAllUploadsTemplate({ uploads: newData })
   console.log(data.upload)
   $('#uploads-thumbnails').html(showUploadsHtml)
 
@@ -67,9 +67,16 @@ const deleteUploadFailure = () => {
 }
 
 const getUserUploadsSuccess = (data) => {
-  console.log('data.length is ', data.length)
+  console.log('user', data)
   if (data.length !== 0) {
-    const showUploadsHtml = showUploadsTemplate({ uploads: data })
+    const policy = store.policy
+    const signature = store.signature
+    const newData = []
+    for (let i = 0, l = data.length; i < l; i++) {
+      data[i].url = data[i].url + '?policy=' + policy + '&signature=' + signature
+      newData.push(data[i])
+    }
+    const showUploadsHtml = showUploadsTemplate({ uploads: newData })
     $('#uploads-thumbnails').html(showUploadsHtml)
   } else {
     const showUploadsHtml = showUploadsTemplate({ uploads: data })
@@ -86,6 +93,17 @@ const getUserUploadsSuccess = (data) => {
   $('#file-upload-link').show()
   $('#get-user-uploads-link').hide()
 }
+
+// const getUploadsSuccess = (data) => {
+//   const policy = store.policy
+//   const signature = store.signature
+//   const newData = []
+//   for (let i = 0, l = data.upload.length; i < l; i++) {
+//     data.upload[i].url = data.upload[i].url + '?policy=' + policy + '&signature=' + signature
+//     newData.push(data.upload[i])
+//   }
+//   console.log(newData.upload)
+//   const showUploadsHtml = showAllUploadsTemplate({ uploads: newData })
 
 const getUserUploadsFailure = () => {
   console.log('get User Uploads failed.')
