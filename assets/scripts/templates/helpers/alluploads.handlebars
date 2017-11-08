@@ -4,7 +4,6 @@
            <div class="thumbnail">
                <h4>{{upload.title}}</h4>
                <img src="{{upload.url}}" onerror=this.src="https://i.imgur.com/TZljVDd.jpg">
-              <script>console.log('This is upload: ', {{upload}})</script>
                <!-- <p>{{upload.tags}}</p> -->
                <p>Owner Id: {{upload._owner}}</p>
                 {{#if upload.tags}}
@@ -24,7 +23,6 @@
                <div class="display-file">
                 <!-- Button HTML (to Trigger Modal) -->
                 <a href="#downloadModal" class="download btn btn-lg btn-primary btn-link col-xs-12" data-toggle="modal">Download</a>
-                <a href="#downloadModal" class="download btn btn-lg btn-primary btn-link col-xs-12" data-toggle="modal">Download</a> -->
                 <!-- Modal HTML -->
                 <div id="downloadModal" class="modal fade">
                   <div class="modal-dialog">
@@ -35,7 +33,7 @@
                         <h4 class="modal-title">Download File</h4>
                       </div>
                       <div class="modal-body">
-                        <img src="{{upload.url}}?signature={{upload.signature}}&policy={{upload.policy}}" class="img-responsive center-block" width="256" height="256" alt="image">
+                        <img src="{{upload.url}}" class="img-responsive center-block" width="256" height="256" alt="image">
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -45,7 +43,6 @@
                   </div>
                 </div>
               </div>
-               <div class="col-xs-6" ><button data-id="{{upload.id}}" type="button" class="remove">Remove!</button></div>
                <div class="clearfix"></div>
            </div>
          </div>
