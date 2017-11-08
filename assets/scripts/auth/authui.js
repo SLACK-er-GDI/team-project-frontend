@@ -2,17 +2,31 @@
 
 const store = require('../store')
 
+const alertCallerAuthSuccess = (alertLocation, alertMessage) => {
+  $('#' + alertLocation).addClass('alert alert-success').html(alertMessage)
+  setTimeout(function () {
+    $('#' + alertLocation).removeClass('alert alert-success').html('')
+  }, 1500)
+}
+
+const alertCallerAuthFailure = (alertLocation, alertMessage) => {
+  $('#' + alertLocation).addClass('alert alert-danger').html(alertMessage)
+  setTimeout(function () {
+    $('#' + alertLocation).removeClass('alert alert-danger').html('')
+  }, 1500)
+}
+
 const signUpSuccess = (data) => {
-  console.log('success')
   $('#sign-up-form').modal('hide')
   // Used to clear out login data
   $('#sign-up-form').on('hidden.bs.modal', function () {
     $(this).find('form').trigger('reset')
   })
+  alertCallerAuthSuccess('frontSuccess', 'Sign-Up Success')
 }
 
 const signUpFailure = () => {
-  $('#sign-up-message').text('ERROR: Email in use or you fat-fingered the password')
+  alertCallerAuthFailure('frontError', 'Sign-Up Failure')
 }
 
 const signInSuccess = (response) => {
@@ -37,10 +51,11 @@ const signInSuccess = (response) => {
   })
   store.user = response.user
   $('#get-uploads-link').trigger('click')
+  alertCallerAuthSuccess('frontSuccess', 'Sign-In Success')
 }
 
 const signInFailure = () => {
-  $('#sign-in-message').text('ERROR: Please try again')
+  alertCallerAuthFailure('frontError', 'Sign-In Failure')
 }
 
 const changePasswordSuccess = () => {
@@ -49,10 +64,11 @@ const changePasswordSuccess = () => {
   $('#change-password-form').on('hidden.bs.modal', function () {
     $(this).find('form').trigger('reset')
   })
+  alertCallerAuthSuccess('frontSuccess', 'Change Password Success')
 }
 
 const changePasswordFailure = () => {
-  $('#change-password-message').text('ERROR: Please try again')
+  alertCallerAuthFailure('frontError', 'Change Password Failure')
 }
 
 const initializeForm = () => {
@@ -76,10 +92,11 @@ const initializeForm = () => {
 
 const signOutSuccess = () => {
   initializeForm()
+  alertCallerAuthSuccess('frontSuccess', 'Sign-Out Success')
 }
 
 const signOutFailure = () => {
-
+  alertCallerAuthFailure('frontError', 'Sign-Out Failure')
 }
 
 module.exports = {
