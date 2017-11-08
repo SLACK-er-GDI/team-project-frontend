@@ -30,6 +30,7 @@ below.
 
 ## Current Issues to be resolved in the future
 - **Future Enhancements**
+
 - Allow uers to search by tags and other search functionality
 - Add default images for file types other than images
 
