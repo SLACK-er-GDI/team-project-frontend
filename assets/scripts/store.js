@@ -6,7 +6,19 @@ const store = {
 const onSignUpSignIn = {
 }
 
+const uploadId = {
+}
+
+const policy = {
+}
+
+const signature = {
+}
+
 module.exports = {
   store,
-  onSignUpSignIn
+  onSignUpSignIn,
+  policy,
+  signature,
+  uploadId
 }
