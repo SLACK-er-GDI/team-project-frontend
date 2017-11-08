@@ -177,8 +177,8 @@ const addFileHandlers = function () {
   $('#file-upload-all-link').on('hidden.bs.modal', function () {
     $(this).find('form').trigger('reset')
   })
-  $('#file-upload-all-link').on('click', fileui.clearUrlField)
-  $('#file-upload-link').on('click', fileui.clearUrlField)
+  $('#file-upload-all-link').on('click', fileui.clearFormFields)
+  $('#file-upload-link').on('click', fileui.clearFormFields)
 }
 
 module.exports = {
