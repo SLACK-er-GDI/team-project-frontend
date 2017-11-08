@@ -82,23 +82,23 @@ const checkboxChecker = (array) => {
   $('#People').prop('checked', false)
   $('#Science').prop('checked', false)
   for (let i = 0; i < array.length; i++) {
-    if (array[i] === 'Animal') {
+    if (array[i].toLowerCase() === 'animal') {
       $('#Animal').prop('checked', true)
-    } else if (array[i] === 'Art') {
+    } else if (array[i].toLowerCase() === 'art') {
       $('#Art').prop('checked', true)
-    } else if (array[i] === 'Business') {
+    } else if (array[i].toLowerCase() === 'business') {
       $('#Business').prop('checked', true)
-    } else if (array[i] === 'Cities') {
+    } else if (array[i].toLowerCase() === 'cities') {
       $('#Cities').prop('checked', true)
-    } else if (array[i] === 'Entertainment') {
+    } else if (array[i].toLowerCase() === 'entertainment') {
       $('#Entertainment').prop('checked', true)
-    } else if (array[i] === 'Food') {
+    } else if (array[i].toLowerCase() === 'food') {
       $('#Food').prop('checked', true)
-    } else if (array[i] === 'Landscapes') {
+    } else if (array[i].toLowerCase() === 'landscapes') {
       $('#Landscapes').prop('checked', true)
-    } else if (array[i] === 'People') {
+    } else if (array[i].toLowerCase() === 'people') {
       $('#People').prop('checked', true)
-    } else if (array[i] === 'Science') {
+    } else if (array[i].toLowerCase() === 'science') {
       $('#Science').prop('checked', true)
     }
   }
