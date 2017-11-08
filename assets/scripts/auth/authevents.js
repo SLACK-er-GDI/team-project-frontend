@@ -6,12 +6,12 @@ const authui = require('./authui')
 
 const onSignInFormShow = function (event) {
   event.preventDefault()
-  $('#sign-up-form').hide()
+  $('#sign-up-form').modal('hide')
 }
 
 const onSignUpFormShow = function (event) {
   event.preventDefault()
-  $('#sign-in-form').hide()
+  $('#sign-in-form').modal('hide')
 }
 
 const onSignUp = function (event) {
