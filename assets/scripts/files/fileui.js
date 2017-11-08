@@ -3,6 +3,8 @@
 // const fileapi = require('./fileapi')
 const showUploadsTemplate = require('../templates/helpers/alluploads.handlebars')
 
+const store = require('../store')
+
 const fileCreateSuccess = () => {
   console.log('file created successfully')
 }
@@ -12,7 +14,19 @@ const fileCreateFailure = () => {
 }
 
 const getUploadsSuccess = (data) => {
-  const showUploadsHtml = showUploadsTemplate({ uploads: data.upload })
+  console.log('data is', data)
+  const policy = store.policy
+  console.log('policy', policy)
+  const signature = store.signature
+  const newData = []
+  for (var i = 0, l = data.upload.length; i < l; i++) {
+    data.upload[i].url = data.upload[i].url + '?policy=' + policy + '&signature=' + signature
+    newData.push(data.upload[i])
+    console.log('for loop', newData)
+  }
+  console.log(newData.upload)
+  const showUploadsHtml = showUploadsTemplate({ uploads: newData })
+  console.log(data.upload)
   $('#uploads-thumbnails').html(showUploadsHtml)
 
   console.log('got uploads successfully')
@@ -53,3 +67,4 @@ module.exports = {
   getUserUploadsFailure,
   getUserUploadsSuccess
 }
+

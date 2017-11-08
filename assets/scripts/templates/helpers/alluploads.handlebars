@@ -3,10 +3,13 @@
         <div class="col-sm-6 col-md-3">
            <div class="thumbnail">
                <h4>{{upload.title}}</h4>
-               <img src="{{upload.url}}" alt="...">
+               <div><img src={{upload.url}}></div>
                <div class="col-xs-6" ><button data-id="{{upload.id}}" type="button" class="remove">Remove!</button></div>
                <div class="col-xs-6"><button data-id="{{upload.id}}" type="button"  class="edit">Update</button></div>
                <div class="clearfix"></div>
            </div>
          </div>
 {{/each}}
+
+
+

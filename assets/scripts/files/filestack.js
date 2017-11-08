@@ -15,6 +15,9 @@ const getFilestackPolicy = function () {
       policy: security.policy,
       signature: security.signature
     }
+    store.policy = policyAndSignature.policy
+    console.log('store.policy', store.policy)
+    store.signature = policyAndSignature.signature
     fsClient = filestack.init(api, policyAndSignature)
   })
 }
