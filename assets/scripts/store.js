@@ -9,8 +9,16 @@ const onSignUpSignIn = {
 const uploadId = {
 }
 
+const policy = {
+}
+
+const signature = {
+}
+
 module.exports = {
   store,
   onSignUpSignIn,
+  policy,
+  signature,
   uploadId
 }
