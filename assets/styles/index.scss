@@ -91,3 +91,25 @@ label {
   font-family: $font-family;
   border-color: 1px solid #2e6da4;
 }
+
+.frontSuccess {
+  z-index: 5000;
+  display: inline-block;
+  margin: 0px auto;
+  position: fixed;
+  transition: all 0.5s ease-in-out;
+  top: 20px;
+  left: 0px;
+  right: 0px;
+}
+
+.frontFailure {
+  z-index: 5000;
+  display: inline-block;
+  margin: 0px auto;
+  position: fixed;
+  transition: all 0.5s ease-in-out;
+  top: 20px;
+  left: 0px;
+  right: 0px;
+}
