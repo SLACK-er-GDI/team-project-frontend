@@ -96,9 +96,8 @@ module.exports = {
   deleteUploadSuccess,
   getUserUploadsFailure,
   getUserUploadsSuccess,
-  updateUploads
   updateUploadSuccess,
-  updateUploadFailure
+  updateUploadFailure,
   fileCreateAllSuccess,
   fileCreateAllFailure
 }
