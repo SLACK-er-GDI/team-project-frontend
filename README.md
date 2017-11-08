@@ -33,7 +33,8 @@ below.
 
 ## Current Issues to be resolved in the future
 - **Future Enhancements**
--
+- Allow user to search by tags
+- Additional filtering options
 
 ## Wireframes and User Stories.
 - [Wire Frames](https://github.com/SLACK-er-GDI/team-project-frontend/blob/master/wireframes/network-wireframe.pdf)
