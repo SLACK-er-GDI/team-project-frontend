@@ -86,15 +86,34 @@ const onDeleteUpload = () => {
 
 const checkboxChecker = (array) => {
   $('#Animal').prop('checked', false)
-  $('#Landscape').prop('checked', false)
+  $('#Art').prop('checked', false)
+  $('#Business').prop('checked', false)
+  $('#Cities').prop('checked', false)
+  $('#Entertainment').prop('checked', false)
+  $('#Food').prop('checked', false)
+  $('#Landscapes').prop('checked', false)
   $('#Person').prop('checked', false)
+  $('#People').prop('checked', false)
+  $('#Science').prop('checked', false)
   for (let i = 0; i < array.length; i++) {
-    if (array[i] === 'animal') {
+    if (array[i].toLowerCase() === 'animal') {
       $('#Animal').prop('checked', true)
-    } else if (array[i] === 'landscape') {
-      $('#Landscape').prop('checked', true)
-    } else if (array[i] === 'person') {
-      $('#Person').prop('checked', true)
+    } else if (array[i].toLowerCase() === 'art') {
+      $('#Art').prop('checked', true)
+    } else if (array[i].toLowerCase() === 'business') {
+      $('#Business').prop('checked', true)
+    } else if (array[i].toLowerCase() === 'cities') {
+      $('#Cities').prop('checked', true)
+    } else if (array[i].toLowerCase() === 'entertainment') {
+      $('#Entertainment').prop('checked', true)
+    } else if (array[i].toLowerCase() === 'food') {
+      $('#Food').prop('checked', true)
+    } else if (array[i].toLowerCase() === 'landscapes') {
+      $('#Landscapes').prop('checked', true)
+    } else if (array[i].toLowerCase() === 'people') {
+      $('#People').prop('checked', true)
+    } else if (array[i].toLowerCase() === 'science') {
+      $('#Science').prop('checked', true)
     }
   }
 }
@@ -107,12 +126,14 @@ const editUpload = () => {
     const index = $(event.target).attr('data-id')
     fileapi.getUserUpload(index).then(function (data) {
       const title = data.upload.title
+      const description = data.upload.description
       // const url = data.update.url
       // const tags = data.update.tags
       store.uploadId = data.upload.id
       checkboxChecker(data.upload.tags)
       // $('#Animal').prop('checked', true)
       $("input[name='upload[title]'").val(title)
+      $("input[name='upload[description]'").val(description)
       console.log('store.uploadId is', store.uploadId)
     })
   })
