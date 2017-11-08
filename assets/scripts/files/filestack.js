@@ -7,7 +7,7 @@ let newSecurity
 
 const getFilestackPolicy = function () {
   return $.ajax({
-    url: 'http://localhost:4741/filestack',
+    url: 'https://team-project-heroku.herokuapp.com/filestack',
     method: 'GET'
   }).then((security) => {
     let api = security.api
