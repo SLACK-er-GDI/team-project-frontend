@@ -123,7 +123,7 @@ const updateUpload = () => {
   $('#edit-upload-form').on('submit', function (event) {
     event.preventDefault()
     const data = getFormFields(this)
-    if (data.tags !== null) {
+    if (!jQuery.isEmptyObject(data.tags)) {
       data.upload['tags'] = Object.keys(data.tags)
     }
     console.log(data)

@@ -16,49 +16,58 @@ const dateFormatter = function (data) {
   }
 }
 
+const alertCallerSuccess = (alertLocation, alertMessage) => {
+  $('#' + alertLocation).addClass('alert alert-success').html(alertMessage)
+  setTimeout(function () {
+    $('#' + alertLocation).removeClass('alert alert-success').html('')
+  }, 1500)
+}
+
+const alertCallerFailure = (alertLocation, alertMessage) => {
+  $('#' + alertLocation).addClass('alert alert-danger').html(alertMessage)
+  setTimeout(function () {
+    $('#' + alertLocation).removeClass('alert alert-danger').html('')
+  }, 1500)
+}
+
 const fileCreateSuccess = () => {
-  console.log('file created successfully')
   $('#file-upload-modal').modal('hide')
   $('#file-upload-modal').on('hidden.bs.modal', function () {
     $(this).find('form').trigger('reset')
   })
+  $('#file-upload-form')[0].reset()
+  alertCallerSuccess('frontSuccess', 'Upload Success')
 }
 
 const fileCreateFailure = () => {
-  console.log('file create failed.')
+  alertCallerFailure('frontError', 'Upload Failure')
 }
 
 const fileCreateAllSuccess = () => {
-  console.log('file created successfully')
   $('#file-upload-all-modal').modal('hide')
   $('#file-upload-all-modal').on('hidden.bs.modal', function () {
     $(this).find('form').trigger('reset')
   })
+  $('#file-upload-all-form')[0].reset()
+  alertCallerSuccess('frontSuccess', 'Upload Success')
 }
 
 const fileCreateAllFailure = () => {
-  console.log('file create failed...... shit')
+  alertCallerFailure('frontError', 'Upload Failure')
 }
 
 const getUploadsSuccess = (data) => {
-  console.log('data is', data)
   const policy = store.policy
-  console.log('policy', policy)
   const signature = store.signature
   const newData = []
   for (let i = 0, l = data.upload.length; i < l; i++) {
     data.upload[i].url = data.upload[i].url + '?policy=' + policy + '&signature=' + signature
     newData.push(data.upload[i])
   }
-  console.log('this is newData', newData)
   dateFormatter(newData)
   const showUploadsHtml = showAllUploadsTemplate({ uploads: newData })
-  console.log(data.upload)
   $('#uploads-thumbnails').html(showUploadsHtml)
   $('[data-toggle="popover"]').popover()
-
-  console.log('got uploads successfully')
-  console.log('get uploads data is ', data)
   $('#get-uploads-link').hide()
   $('#file-upload-all-link').show()
   $('#file-upload-link').hide()
@@ -66,20 +75,18 @@ const getUploadsSuccess = (data) => {
 }
 
 const getUploadsFailure = () => {
-  console.log('get uploads failed.')
+  alertCallerFailure('frontError', 'Unable to Retrieve Uploads')
 }
 
 const deleteUploadSuccess = (data) => {
-  console.log('delete upload successfully')
-  console.log('delete upload data is ', data)
+  alertCallerSuccess('frontSuccess', 'Upload Deleted')
 }
 
 const deleteUploadFailure = () => {
-  console.log('delete upload failed.')
+  alertCallerFailure('frontError', 'Delete Upload Failure')
 }
 
 const getUserUploadsSuccess = (data) => {
-  console.log('user', data)
   if (data.length !== 0) {
     const policy = store.policy
     const signature = store.signature
@@ -101,36 +108,24 @@ const getUserUploadsSuccess = (data) => {
       $('#no-uploads-message').fadeOut()
     }, 3000)
   }
-  console.log('get User Uploads successfully')
   $('#get-uploads-link').show()
   $('#file-upload-all-link').hide()
   $('#file-upload-link').show()
   $('#get-user-uploads-link').hide()
 }
 
-// const getUploadsSuccess = (data) => {
-//   const policy = store.policy
-//   const signature = store.signature
-//   const newData = []
-//   for (let i = 0, l = data.upload.length; i < l; i++) {
-//     data.upload[i].url = data.upload[i].url + '?policy=' + policy + '&signature=' + signature
-//     newData.push(data.upload[i])
-//   }
-//   console.log(newData.upload)
-//   const showUploadsHtml = showAllUploadsTemplate({ uploads: newData })
-
 const getUserUploadsFailure = () => {
-  console.log('get User Uploads failed.')
+  alertCallerFailure('frontError', 'Unable to Retrieve User Uploads')
 }
 
 const updateUploadSuccess = () => {
-  console.log('update upload successfully')
   $('#edit-upload-modal').modal('hide')
   $('#edit-upload-form')[0].reset()
+  alertCallerSuccess('frontSuccess', 'Upload Updated')
 }
 
 const updateUploadFailure = () => {
-  console.log('update upload failed...... shit')
+  alertCallerFailure('frontError', 'Upload Update Failure')
 }
 
 const clearUrlField = (event) => {
