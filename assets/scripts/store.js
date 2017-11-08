@@ -6,6 +6,9 @@ const store = {
 const onSignUpSignIn = {
 }
 
+const uploadId = {
+}
+
 const policy = {
 }
 
