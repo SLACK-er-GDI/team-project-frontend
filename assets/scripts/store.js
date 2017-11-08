@@ -19,5 +19,6 @@ module.exports = {
   store,
   onSignUpSignIn,
   policy,
-  signature
+  signature,
+  uploadId
 }
