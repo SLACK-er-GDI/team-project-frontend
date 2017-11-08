@@ -3,7 +3,7 @@
         <div class="col-sm-6 col-md-3">
            <div class="thumbnail">
                <h4>{{upload.title}}</h4>
-               <img src="{{upload.url}}" alt="...">
+               <img src="{{upload.url}}" onerror=this.src="https://i.imgur.com/TZljVDd.jpg">
                <script>console.log('This is upload: ', {{upload}})</script>
                <!-- <p>{{upload.tags}}</p> -->
                <p>Tags:
@@ -14,7 +14,8 @@
                <!-- <div class="col-xs-12"><button data-id="{{upload.id}}" type="button"  class="download btn btn-link col-xs-12">Download</button></div> -->
                <form action={{upload.url}}?signature={{upload.signature}}&policy={{upload.policy}}"><input data-id="{{upload.id}}" type="submit" class="download btn btn-link col-xs-12" value="Download" /></form>
                <div><button data-id="{{upload.id}}" type="button" class="remove btn btn-warning col-xs-6">Remove!</button></div>
-               <div><button data-id="{{upload.id}}" type="button"  class="edit btn btn-danger col-xs-6">Update</button></div>
+               <div class="editButton"><button data-toggle="modal" data-target="#edit-upload-modal" data-id="{{upload.id}}" type="button"  class="edit btn btn-danger col-xs-6">Update</button>
+               </div>
                <div class="clearfix"></div>
            </div>
          </div>

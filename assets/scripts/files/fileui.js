@@ -77,6 +77,16 @@ const getUserUploadsFailure = () => {
   console.log('get User Uploads failed...... shit')
 }
 
+const updateUploadSuccess = () => {
+  console.log('update upload successfully')
+  $('#edit-upload-modal').modal('hide')
+  $('#edit-upload-form')[0].reset()
+}
+
+const updateUploadFailure = () => {
+  console.log('update upload failed...... shit')
+}
+
 module.exports = {
   fileCreateSuccess,
   fileCreateFailure,
@@ -86,6 +96,9 @@ module.exports = {
   deleteUploadSuccess,
   getUserUploadsFailure,
   getUserUploadsSuccess,
+  updateUploads
+  updateUploadSuccess,
+  updateUploadFailure
   fileCreateAllSuccess,
   fileCreateAllFailure
 }
