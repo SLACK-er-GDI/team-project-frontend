@@ -4,9 +4,8 @@ const setAPIOrigin = require('../../lib/set-api-origin')
 const config = require('./config')
 const fileevents = require('./files/fileevents')
 const authevents = require('./auth/authevents')
-const getPolicy = require('./files/fileapi')
+// const getPolicy = require('./files/fileapi')
 const filestack = require('./files/filestack')
-
 
 // invokes click handlers for authentication and file actions
 $(() => {

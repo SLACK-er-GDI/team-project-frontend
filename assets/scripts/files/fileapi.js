@@ -41,8 +41,6 @@ const deleteUpload = function (data) {
   })
 }
 
-
-
 module.exports = {
   fileUpload,
   getUploads,

@@ -10,7 +10,7 @@ const fileCreateSuccess = () => {
 }
 
 const fileCreateFailure = () => {
-  console.log('file create failed...... shit')
+  console.log('file create failed.')
 }
 
 const getUploadsSuccess = (data) => {
@@ -19,10 +19,9 @@ const getUploadsSuccess = (data) => {
   console.log('policy', policy)
   const signature = store.signature
   const newData = []
-  for (var i = 0, l = data.upload.length; i < l; i++) {
+  for (let i = 0, l = data.upload.length; i < l; i++) {
     data.upload[i].url = data.upload[i].url + '?policy=' + policy + '&signature=' + signature
     newData.push(data.upload[i])
-    console.log('for loop', newData)
   }
   console.log(newData.upload)
   const showUploadsHtml = showUploadsTemplate({ uploads: newData })
@@ -34,7 +33,7 @@ const getUploadsSuccess = (data) => {
 }
 
 const getUploadsFailure = () => {
-  console.log('get uploads failed...... shit')
+  console.log('get uploads failed.')
 }
 
 const deleteUploadSuccess = (data) => {
@@ -43,7 +42,7 @@ const deleteUploadSuccess = (data) => {
 }
 
 const deleteUploadFailure = () => {
-  console.log('delete upload failed...... shit')
+  console.log('delete upload failed.')
 }
 
 const getUserUploadsSuccess = (data) => {
@@ -54,7 +53,7 @@ const getUserUploadsSuccess = (data) => {
 }
 
 const getUserUploadsFailure = () => {
-  console.log('get User Uploads failed...... shit')
+  console.log('get User Uploads failed.')
 }
 
 module.exports = {

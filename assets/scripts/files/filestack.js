@@ -16,7 +16,6 @@ const getFilestackPolicy = function () {
       signature: security.signature
     }
     store.policy = policyAndSignature.policy
-    console.log('store.policy', store.policy)
     store.signature = policyAndSignature.signature
     fsClient = filestack.init(api, policyAndSignature)
   })
@@ -25,7 +24,6 @@ const getFilestackPolicy = function () {
 let fsClient
 
 function openPicker () {
-  console.log('picker', fsClient)
   fsClient.pick({
     // Controls where users can select files from
     fromSources: ["local_file_system", "url", "imagesearch", "facebook", "instagram", "googledrive", "dropbox"],
@@ -36,8 +34,8 @@ function openPicker () {
   }).then(function(response) {
     console.log('response', response)
     // getImageurl parses out the URL received from Filestack and stores it in variable
-     let getImageurl = response.filesUploaded[0].url
-    //const Call function to place the Filestack URL in the form field
+    let getImageurl = response.filesUploaded[0].url
+    // const Call function to place the Filestack URL in the form field
     urlImport(getImageurl)
     // handleFilestack(response)
   })
