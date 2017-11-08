@@ -2,11 +2,11 @@
 <!-- go through uploads array and do something on each one -->
         <div class="col-sm-6 col-md-3">
            <div class="thumbnail">
-               <h4>{{upload.title}}</h4>
+               <h4><a href="#" data-trigger="focus" data-toggle="popover" title="Image Properties" data-html="true" data-content="Uploader: {{upload.ownerEmail}}<br />Date Created: {{upload.createdAt}}<br />Last Updated: {{upload.updatedAt}}<br />Description: {{upload.description}}">{{upload.title}}</a></h4>
                <img src="{{upload.url}}" onerror=this.src="https://i.imgur.com/TZljVDd.jpg">
               <script>console.log('This is upload: ', {{upload}})</script>
                <!-- <p>{{upload.tags}}</p> -->
-               <p>Owner Id: {{upload._owner}}</p>
+               <!-- <p>Uploader: {{upload.ownerEmail}}</p> -->
                 {{#if upload.tags}}
                 <p>Tags:
                 {{#each upload.tags as |tag|}}
@@ -14,8 +14,8 @@
                 {{/each}}
                 </p>
                 {{/if}}
-                <p>Date Created: {{upload.createdAt}}</p>
-                <p>Date Updated: {{upload.updatedAt}}</p>
+                <!-- <p>Date Created: {{upload.createdAt}}</p>
+                <p>Date Updated: {{upload.updatedAt}}</p> -->
                <!-- <div class="col-xs-12"><button data-id="{{upload.id}}" type="button"  class="download btn btn-link col-xs-12">Download</button></div> -->
                <!-- <form action={{upload.url}}?signature={{upload.signature}}&policy={{upload.policy}}"><input data-id="{{upload.id}}" type="submit" class="download btn btn-link col-xs-12" value="Download" /></form> -->
                <!-- <a data-target="#myModal" href="/remote/url" role="button" class="btn" data-toggle="modal">Launch demo modal</a> -->
@@ -24,7 +24,6 @@
                <div class="display-file">
                 <!-- Button HTML (to Trigger Modal) -->
                 <a href="#downloadModal" class="download btn btn-lg btn-primary btn-link col-xs-12" data-toggle="modal">Download</a>
-                <a href="#downloadModal" class="download btn btn-lg btn-primary btn-link col-xs-12" data-toggle="modal">Download</a> -->
                 <!-- Modal HTML -->
                 <div id="downloadModal" class="modal fade">
                   <div class="modal-dialog">

@@ -31,6 +31,7 @@ const fileCreateAllFailure = () => {
 const getUploadsSuccess = (data) => {
   const showAllUploadsHtml = showAllUploadsTemplate({ uploads: data.upload })
   $('#uploads-thumbnails').html(showAllUploadsHtml)
+  $('[data-toggle="popover"]').popover()
   console.log('got uploads successfully')
   console.log('get uploads data is ', data)
   $('#get-uploads-link').hide()
@@ -60,6 +61,7 @@ const getUserUploadsSuccess = (data) => {
   } else {
     const showUploadsHtml = showUploadsTemplate({ uploads: data })
     $('#uploads-thumbnails').html(showUploadsHtml)
+    $('[data-toggle="popover"]').popover()
     $('#no-uploads-message').show()
     $('#no-uploads-message').text('You don\'t have any files to display')
     window.setTimeout(function () {

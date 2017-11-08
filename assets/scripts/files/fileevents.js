@@ -37,7 +37,6 @@ const getUploadsRefresh = function (event) {
 }
 
 const getAllUploadsRefresh = function (event) {
-  console.log('get all uploads refresh is being called')
   fileapi.getUploads()
     .then(fileui.getUploadsSuccess)
     .catch(fileui.getUploadsFailure)
@@ -49,9 +48,9 @@ const onFileUpload = function (event) {
   if (!jQuery.isEmptyObject(data.tags)) {
     data.upload['tags'] = Object.keys(data.tags)
   }
-  console.log(data)
+  data.upload['ownerEmail'] = store.user.email
+  console.log('upload data is', data)
   fileapi.fileUpload(data)
-    // Code below is commented out until backend functionality is complete
     .then(fileui.fileCreateSuccess)
     .then(getUploadsRefresh)
     .catch(fileui.fileCreateFailure)
@@ -64,9 +63,9 @@ const onFileUploadAll = function (event) {
   if (!jQuery.isEmptyObject(data.tags)) {
     data.upload['tags'] = Object.keys(data.tags)
   }
-  console.log(data)
+  data.upload['ownerEmail'] = store.user.email
+  console.log('upload data is', data)
   fileapi.fileUpload(data)
-    // Code below is commented out until backend functionality is complete
     .then(fileui.fileCreateAllSuccess)
     .then(getAllUploadsRefresh)
     .catch(fileui.fileCreateAllFailure)
@@ -161,7 +160,6 @@ const filterUserUploads = function (array) {
     if (array.upload[i]._owner === store.user.id) {
       userArray.push(array.upload[i])
     } else {
-      console.log('This one does not match', array.upload[i])
     }
   }
   console.log(userArray)
@@ -171,7 +169,6 @@ const filterUserUploads = function (array) {
 const onGetUserUploads = function (event) {
   event.preventDefault()
   fileapi.getUploads()
-    // Code below is commented out until backend functionality is complete
     .then(filterUserUploads)
     .then(fileui.getUserUploadsSuccess)
     .then(onDeleteUpload)
