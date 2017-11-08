@@ -3,8 +3,18 @@
 // const fileapi = require('./fileapi')
 const showUploadsTemplate = require('../templates/helpers/user-uploads.handlebars')
 const showAllUploadsTemplate = require('../templates/helpers/alluploads.handlebars')
+const moment = require('moment')
 
 const store = require('../store')
+
+const dateFormatter = function (data) {
+  for (let i = 0; i < data.length; i++) {
+    const formatUpdated = data[i].updatedAt.split('T')
+    const formatCreation = data[i].createdAt.split('T')
+    data[i].createdAt = moment(formatCreation[0]).format('LL')
+    data[i].updatedAt = moment(formatUpdated[0]).format('LL')
+  }
+}
 
 const fileCreateSuccess = () => {
   console.log('file created successfully')
@@ -40,7 +50,8 @@ const getUploadsSuccess = (data) => {
     data.upload[i].url = data.upload[i].url + '?policy=' + policy + '&signature=' + signature
     newData.push(data.upload[i])
   }
-  console.log(newData.upload)
+  console.log('this is newData', newData)
+  dateFormatter(newData)
   const showUploadsHtml = showAllUploadsTemplate({ uploads: newData })
   console.log(data.upload)
   $('#uploads-thumbnails').html(showUploadsHtml)
@@ -77,6 +88,7 @@ const getUserUploadsSuccess = (data) => {
       data[i].url = data[i].url + '?policy=' + policy + '&signature=' + signature
       newData.push(data[i])
     }
+    dateFormatter(newData)
     const showUploadsHtml = showUploadsTemplate({ uploads: newData })
     $('#uploads-thumbnails').html(showUploadsHtml)
     $('[data-toggle="popover"]').popover()
