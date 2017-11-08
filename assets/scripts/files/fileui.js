@@ -128,9 +128,11 @@ const updateUploadFailure = () => {
   alertCallerFailure('frontError', 'Upload Update Failure')
 }
 
-const clearUrlField = (event) => {
-  $('#modal-url').val('')
-  $('.modal-url').val('')
+const clearFormFields = (event) => {
+  // $('#modal-url').val('')
+  // $('.modal-url').val('')
+  $('#file-upload-form')[0].reset()
+  $('#file-upload-all-form')[0].reset()
 }
 
 module.exports = {
@@ -146,5 +148,5 @@ module.exports = {
   updateUploadFailure,
   fileCreateAllSuccess,
   fileCreateAllFailure,
-  clearUrlField
+  clearFormFields
 }
