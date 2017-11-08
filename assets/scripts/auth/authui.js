@@ -5,7 +5,6 @@ const store = require('../store')
 const signUpSuccess = (data) => {
   console.log('success')
   $('#sign-up-form').modal('hide')
-  // $('#sign-in-form').modal('show')
   // Used to clear out login data
   $('#sign-up-form').on('hidden.bs.modal', function () {
     $(this).find('form').trigger('reset')

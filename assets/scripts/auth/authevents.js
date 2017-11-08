@@ -54,7 +54,17 @@ const addAuthHandlers = function () {
   $('#sign-out-link').on('click', onSignOut)
   $('#sign-in-form').on('focus', onSignInFormShow)
   $('#sign-up-form').on('focus', onSignUpFormShow)
+  $('#sign-up-form').trigger('reset')
   authui.initializeForm()
+  $('.close-modal').on('click', function () {
+    $('#change-password').trigger('reset')
+  })
+  $('.close-modal').on('click', function () {
+    $('#sign-up').trigger('reset')
+  })
+  $('.close-modal').on('click', function () {
+    $('#sign-in').trigger('reset')
+  })
 }
 
 module.exports = {
