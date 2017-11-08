@@ -7,7 +7,7 @@ let newSecurity
 
 const getFilestackPolicy = function () {
   return $.ajax({
-    url:  'http://localhost:4741/filestack',
+    url: config.apiOrigin + '/filestack',
     method: 'GET'
   }).then((security) => {
     let api = security.api
