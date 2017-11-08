@@ -173,11 +173,19 @@ const onGetUploads = function (event) {
 const addFileHandlers = function () {
   // When 'upload' button is clicked, the Filestack uploader will be called
   // $('.file-picker-button').on('click', openPicker)
-  // When user saves form, the function that stores the form info is called
+  // When user saves form, the function that stores the form info is call
   $('#file-upload-form').on('submit', onFileUpload)
   $('#file-upload-all-form').on('submit', onFileUploadAll)
   $('#get-uploads-link').on('click', onGetUploads)
   $('#get-user-uploads-link').on('click', onGetUserUploads)
+  $('#file-upload-link').on('hidden.bs.modal', function () {
+    $(this).find('form').trigger('reset')
+  })
+  $('#file-upload-all-link').on('hidden.bs.modal', function () {
+    $(this).find('form').trigger('reset')
+  })
+  $('#file-upload-all-link').on('click', fileui.clearUrlField)
+  $('#file-upload-link').on('click', fileui.clearUrlField)
 }
 
 module.exports = {

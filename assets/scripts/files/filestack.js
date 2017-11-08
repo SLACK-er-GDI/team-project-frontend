@@ -44,6 +44,7 @@ function openPicker () {
 // This sets the form value for pared URL received from Filestack
 function urlImport (getImageurl) {
   document.querySelector('.modal-url').value = getImageurl
+  document.querySelector('#modal-url').value = getImageurl
 }
 
 const addFileStackHandlers = function () {
