@@ -75,12 +75,24 @@ const checkboxChecker = (array) => {
   $('#Landscape').prop('checked', false)
   $('#Person').prop('checked', false)
   for (let i = 0; i < array.length; i++) {
-    if (array[i] === 'animal') {
+    if (array[i] === 'Animal') {
       $('#Animal').prop('checked', true)
-    } else if (array[i] === 'landscape') {
-      $('#Landscape').prop('checked', true)
-    } else if (array[i] === 'person') {
-      $('#Person').prop('checked', true)
+    } else if (array[i] === 'Art') {
+      $('#Art').prop('checked', true)
+    } else if (array[i] === 'Business') {
+      $('#Business').prop('checked', true)
+    } else if (array[i] === 'Cities') {
+      $('#Cities').prop('checked', true)
+    } else if (array[i] === 'Entertainment') {
+      $('#Entertainment').prop('checked', true)
+    } else if (array[i] === 'Food') {
+      $('#Food').prop('checked', true)
+    } else if (array[i] === 'Landscapes') {
+      $('#Landscapes').prop('checked', true)
+    } else if (array[i] === 'People') {
+      $('#People').prop('checked', true)
+    } else if (array[i] === 'Science') {
+      $('#Science').prop('checked', true)
     }
   }
 }
@@ -93,12 +105,14 @@ const editUpload = () => {
     const index = $(event.target).attr('data-id')
     fileapi.getUserUpload(index).then(function (data) {
       const title = data.upload.title
+      const description = data.upload.description
       // const url = data.update.url
       // const tags = data.update.tags
       store.uploadId = data.upload.id
       checkboxChecker(data.upload.tags)
       // $('#Animal').prop('checked', true)
       $("input[name='upload[title]'").val(title)
+      $("input[name='upload[description]'").val(description)
       console.log('store.uploadId is', store.uploadId)
     })
   })
