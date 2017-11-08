@@ -17,6 +17,7 @@ below.
 - **JavaScript** - Events from the table, buttons, and the navigation bar drive
   the application
 - **Handlebars** - Used handlebars to display thumbnails
+- [Filestack](https://www.filestack.com) - Image and file management site.
 - [ERD for backend DB](https://imgur.com/I5NgK1z)
 
 ## The Devlopment Story
