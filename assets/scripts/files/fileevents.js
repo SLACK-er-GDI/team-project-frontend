@@ -28,7 +28,6 @@ const onFileUpload = function (event) {
     data.upload['tags'] = Object.keys(data.tags)
   }
   data.upload['ownerEmail'] = store.user.email
-  console.log('upload data is', data)
   fileapi.fileUpload(data)
     .then(fileui.fileCreateSuccess)
     .then(getUploadsRefresh)
@@ -36,14 +35,12 @@ const onFileUpload = function (event) {
 }
 
 const onFileUploadAll = function (event) {
-  console.log('onFileUploadAll is being called')
   event.preventDefault()
   const data = getFormFields(event.target)
   if (!jQuery.isEmptyObject(data.tags)) {
     data.upload['tags'] = Object.keys(data.tags)
   }
   data.upload['ownerEmail'] = store.user.email
-  console.log('upload data is', data)
   fileapi.fileUpload(data)
     .then(fileui.fileCreateAllSuccess)
     .then(getAllUploadsRefresh)
@@ -54,7 +51,6 @@ const onDeleteUpload = () => {
   $('.remove').on('click', function (event) {
     event.preventDefault()
     const index = $(event.target).attr('data-id')
-    console.log('index is', index)
     fileapi.deleteUpload(index)
     // Code below is commented out until backend functionality is complete
       .then(fileui.deleteUploadSuccess)
@@ -113,7 +109,6 @@ const editUpload = () => {
       // $('#Animal').prop('checked', true)
       $("input[name='upload[title]'").val(title)
       $("input[name='upload[description]'").val(description)
-      console.log('store.uploadId is', store.uploadId)
     })
   })
 }
@@ -126,7 +121,6 @@ const updateUpload = () => {
     if (!jQuery.isEmptyObject(data.tags)) {
       data.upload['tags'] = Object.keys(data.tags)
     }
-    console.log(data)
     fileapi.updateUpload(data, store.uploadId)
       .then(fileui.updateUploadSuccess)
       .then(getUploadsRefresh)
@@ -142,7 +136,6 @@ const filterUserUploads = function (array) {
     } else {
     }
   }
-  console.log(userArray)
   return userArray
 }
 
