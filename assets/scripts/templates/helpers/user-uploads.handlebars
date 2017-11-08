@@ -12,7 +12,31 @@
                {{/each}}
                </p>
                <!-- <div class="col-xs-12"><button data-id="{{upload.id}}" type="button"  class="download btn btn-link col-xs-12">Download</button></div> -->
-               <form action={{upload.url}}?signature={{upload.signature}}&policy={{upload.policy}}"><input data-id="{{upload.id}}" type="submit" class="download btn btn-link col-xs-12" value="Download" /></form>
+
+               <!-- <form action={{upload.url}}?signature={{upload.signature}}&policy={{upload.policy}}"><input data-id="{{upload.id}}" type="submit" class="download btn btn-link col-xs-12" value="Download" /></form> -->
+               <div class="display-file">
+                <!-- Button HTML (to Trigger Modal) -->
+                <a href="#downloadModal" class="download btn btn-lg btn-primary btn-link col-xs-12" data-toggle="modal">Download</a>
+                <!-- Modal HTML -->
+                <div id="downloadModal" class="modal fade">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"
+                          aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Download File</h4>
+                      </div>
+                      <div class="modal-body">
+                        <img src="{{upload.url}}?signature={{upload.signature}}&policy={{upload.policy}}" class="img-responsive center-block" width="256" height="256" alt="image">
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" id="save-download" class="btn btn-primary">Save File</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
                <div><button data-id="{{upload.id}}" type="button" class="remove btn btn-warning col-xs-6">Remove!</button></div>
                <div class="editButton"><button data-toggle="modal" data-target="#edit-upload-modal" data-id="{{upload.id}}" type="button"  class="edit btn btn-danger col-xs-6">Update</button>
                </div>
