@@ -121,6 +121,11 @@ const updateUploadFailure = () => {
   console.log('update upload failed...... shit')
 }
 
+const clearUrlField = (event) => {
+  $('#modal-url').val('')
+  $('.modal-url').val('')
+}
+
 module.exports = {
   fileCreateSuccess,
   fileCreateFailure,
@@ -133,5 +138,6 @@ module.exports = {
   updateUploadSuccess,
   updateUploadFailure,
   fileCreateAllSuccess,
-  fileCreateAllFailure
+  fileCreateAllFailure,
+  clearUrlField
 }
