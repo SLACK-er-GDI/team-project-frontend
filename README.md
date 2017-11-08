@@ -30,7 +30,8 @@ below.
 
 ## Current Issues to be resolved in the future
 - **Future Enhancements**
--
+- Allow uers to search by tags and other search functionality
+- Add default images for file types other than images
 
 ## Wireframes and User Stories.
 - [Wire Frames](https://imgur.com/B7k8hCy)
