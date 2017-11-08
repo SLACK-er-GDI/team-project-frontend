@@ -16,6 +16,13 @@ const alertCallerAuthFailure = (alertLocation, alertMessage) => {
   }, 1500)
 }
 
+const failureAuthShake = (modalTarget) => {
+  $('#' + modalTarget).addClass('shake')
+  setTimeout(function () {
+    $('#' + modalTarget).removeClass('shake')
+  }, 1500)
+}
+
 const signUpSuccess = (data) => {
   $('#sign-up-form').modal('hide')
   // Used to clear out login data
@@ -27,6 +34,7 @@ const signUpSuccess = (data) => {
 
 const signUpFailure = () => {
   alertCallerAuthFailure('frontError', 'Sign-Up Failure')
+  failureAuthShake('sign-up-form')
 }
 
 const signInSuccess = (response) => {
@@ -56,6 +64,7 @@ const signInSuccess = (response) => {
 
 const signInFailure = () => {
   alertCallerAuthFailure('frontError', 'Sign-In Failure')
+  failureAuthShake('sign-in-form')
 }
 
 const changePasswordSuccess = () => {
@@ -69,6 +78,7 @@ const changePasswordSuccess = () => {
 
 const changePasswordFailure = () => {
   alertCallerAuthFailure('frontError', 'Change Password Failure')
+  failureAuthShake('change-password-form')
 }
 
 const initializeForm = () => {
