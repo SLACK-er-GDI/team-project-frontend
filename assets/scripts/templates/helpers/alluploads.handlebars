@@ -2,7 +2,7 @@
 <!-- go through uploads array and do something on each one -->
         <div class="col-sm-6 col-md-3">
            <div class="thumbnail">
-               <h4><a href="#" data-trigger="focus" data-toggle="popover" title="Image Properties" data-html="true" data-content="Uploader: {{upload.ownerEmail}}<br />Date Created: {{upload.createdAt}}<br />Last Updated: {{upload.updatedAt}}<br />Description: {{upload.description}}">{{upload.title}}</a></h4>
+               <h4><a href="#" class="hb-buttons thumbnail-images" data-trigger="focus" data-toggle="popover" title="Image Properties" data-html="true" data-content="Uploader: {{upload.ownerEmail}}<br />Date Created: {{upload.createdAt}}<br />Last Updated: {{upload.updatedAt}}<br />Description: {{upload.description}}">{{upload.title}}</a></h4>
                <img src="{{upload.url}}" onerror=this.src="https://i.imgur.com/TZljVDd.jpg">
                <!-- <p>{{upload.tags}}</p> -->
                <!-- <p>Uploader: {{upload.ownerEmail}}</p> -->
@@ -14,7 +14,7 @@
                 </p>
                 {{/if}}
 
-               <a href="{{upload.url}}" download="testit">Download</a>
+               <a href="{{upload.url}}" class="hb-buttons download-button" download="testit">Download</a>
                <div class="clearfix"></div>
            </div>
          </div>
