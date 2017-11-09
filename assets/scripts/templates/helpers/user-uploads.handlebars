@@ -1,24 +1,25 @@
 {{#each uploads as |upload|}}
 <!-- go through uploads array and do something on each one -->
-        <div class="col-sm-6 col-md-3">
+        <div class="grid col-sm-6 col-md-3">
            <div class="thumbnail">
 
-               <h4><a href="#" data-trigger="focus" class="contextDisplay" data-toggle="popover" title="Image Properties" data-html="true" data-content="Uploader: {{upload.ownerEmail}}<br />Date Created: {{upload.createdAt}}<br />Last Updated: {{upload.updatedAt}}<br />Description: {{upload.description}}">{{upload.title}}</a></h4>
+               <h4><a href="#" class="hb-buttons thumbnail-images contextDisplay" data-trigger="focus" data-toggle="popover" title="Image Properties" data-html="true" data-content="Uploader: {{upload.ownerEmail}}<br />Date Created: {{upload.createdAt}}<br />Last Updated: {{upload.updatedAt}}<br />Description: {{upload.description}}">{{upload.title}}</a></h4>
+
                <img src="{{upload.url}}" onerror=this.src="https://i.imgur.com/TZljVDd.jpg">
                <!-- <p>{{upload.tags}}</p> -->
               <!-- <p>Uploader: {{upload.ownerEmail}}</p> -->
                {{#if upload.tags}}
-               <p>Tags:
+               <p>
                {{#each upload.tags as |tag|}}
                {{tag}}
                {{/each}}
                </p>
                {{/if}}
-               <a href="{{upload.url}}" download="testit">Download</a>
-               <div><button data-id="{{upload.id}}" type="button" class="remove btn btn-warning col-xs-6">Remove</button></div>
-               <div class="editButton"><button data-toggle="modal" data-target="#edit-upload-modal" data-id="{{upload.id}}" type="button"  class="edit btn btn-danger col-xs-6">Update</button>
+               <a href="{{upload.url}}" class="hb-buttons download-button" download="testit">Download</a>
+               <div class="edit-div"><button data-id="{{upload.id}}" type="button" class="remove btn edit-modal-buttons col-xs-6">Remove</button></div>
+               <div class="edit-div editButton"><button data-toggle="modal" class="edit btn edit-modal-buttons col-xs-6" data-target="#edit-upload-modal" data-id="{{upload.id}}" type="button">Update</button>
                </div>
-               <div class="clearfix"></div>
+
            </div>
          </div>
 {{/each}}
