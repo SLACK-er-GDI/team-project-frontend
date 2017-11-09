@@ -1,6 +1,6 @@
 {{#each uploads as |upload|}}
 <!-- go through uploads array and do something on each one -->
-        <div class="col-sm-6 col-md-3">
+        <div class="grid col-sm-6 col-md-3">
            <div class="thumbnail">
 
                <h4><a href="#" class="hb-buttons thumbnail-images" data-trigger="focus" data-toggle="popover" title="Image Properties" data-html="true" data-content="Uploader: {{upload.ownerEmail}}<br />Date Created: {{upload.createdAt}}<br />Last Updated: {{upload.updatedAt}}<br />Description: {{upload.description}}">{{upload.title}}</a></h4>
@@ -8,7 +8,7 @@
                <!-- <p>{{upload.tags}}</p> -->
               <!-- <p>Uploader: {{upload.ownerEmail}}</p> -->
                {{#if upload.tags}}
-               <p>Tags:
+               <p>
                {{#each upload.tags as |tag|}}
                {{tag}}
                {{/each}}
