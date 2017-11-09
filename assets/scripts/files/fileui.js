@@ -30,6 +30,13 @@ const alertCallerFailure = (alertLocation, alertMessage) => {
   }, 1500)
 }
 
+const failureShake = (modalTarget) => {
+  $('#' + modalTarget).addClass('shake')
+  setTimeout(function () {
+    $('#' + modalTarget).removeClass('shake')
+  }, 1500)
+}
+
 const fileCreateSuccess = () => {
   $('#file-upload-modal').modal('hide')
   $('#file-upload-modal').on('hidden.bs.modal', function () {
@@ -41,6 +48,7 @@ const fileCreateSuccess = () => {
 
 const fileCreateFailure = () => {
   alertCallerFailure('frontError', 'Upload Failure')
+  failureShake('file-upload-modal')
 }
 
 const fileCreateAllSuccess = () => {
@@ -54,6 +62,7 @@ const fileCreateAllSuccess = () => {
 
 const fileCreateAllFailure = () => {
   alertCallerFailure('frontError', 'Upload Failure')
+  failureShake('file-upload-all-modal')
 }
 
 const getUploadsSuccess = (data) => {
@@ -72,6 +81,10 @@ const getUploadsSuccess = (data) => {
   $('#file-upload-all-link').show()
   $('#file-upload-link').hide()
   $('#get-user-uploads-link').show()
+  $('a.contextDisplay').on('click', function (e) {
+    e.preventDefault()
+    return true
+  })
 }
 
 const getUploadsFailure = () => {
@@ -112,6 +125,10 @@ const getUserUploadsSuccess = (data) => {
   $('#file-upload-all-link').hide()
   $('#file-upload-link').show()
   $('#get-user-uploads-link').hide()
+  $('a.contextDisplay').on('click', function (e) {
+    e.preventDefault()
+    return true
+  })
 }
 
 const getUserUploadsFailure = () => {
@@ -126,6 +143,7 @@ const updateUploadSuccess = () => {
 
 const updateUploadFailure = () => {
   alertCallerFailure('frontError', 'Upload Update Failure')
+  failureShake('edit-upload-modal')
 }
 
 const clearFormFields = (event) => {
