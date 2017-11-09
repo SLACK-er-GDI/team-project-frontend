@@ -81,6 +81,10 @@ const getUploadsSuccess = (data) => {
   $('#file-upload-all-link').show()
   $('#file-upload-link').hide()
   $('#get-user-uploads-link').show()
+  $('a.contextDisplay').on('click', function (e) {
+    e.preventDefault()
+    return true
+  })
 }
 
 const getUploadsFailure = () => {
@@ -121,6 +125,10 @@ const getUserUploadsSuccess = (data) => {
   $('#file-upload-all-link').hide()
   $('#file-upload-link').show()
   $('#get-user-uploads-link').hide()
+  $('a.contextDisplay').on('click', function (e) {
+    e.preventDefault()
+    return true
+  })
 }
 
 const getUserUploadsFailure = () => {
