@@ -15,12 +15,10 @@
                </p>
                {{/if}}
                <a href="{{upload.url}}" class="hb-buttons download-button" download="testit">Download</a>
-               <div class="hb-buttons">
-               <div><button data-id="{{upload.id}}" type="button" class="remove btn edit-modal-buttons col-xs-6">Remove</button></div>
-               <div class="editButton"><button data-toggle="modal" data-target="#edit-upload-modal" data-id="{{upload.id}}" type="button"  class="edit btn edit-modal-buttons col-xs-6">Update</button>
+               <div class="edit-div"><button data-id="{{upload.id}}" type="button" class="remove btn edit-modal-buttons col-xs-6">Remove</button></div>
+               <div class="edit-div editButton"><button data-toggle="modal" class="edit btn edit-modal-buttons col-xs-6" data-target="#edit-upload-modal" data-id="{{upload.id}}" type="button">Update</button>
                </div>
-               </div>
-               <div class="clearfix"></div>
+
            </div>
          </div>
 {{/each}}
